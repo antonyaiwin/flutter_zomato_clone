@@ -6,6 +6,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.child,
     this.color = ColorConstants.primaryColor,
+    this.disabledColor = ColorConstants.primaryColorShade10,
     this.onTap,
     this.expanded = true,
     this.padding,
@@ -21,10 +22,12 @@ class CustomButton extends StatelessWidget {
     this.padding,
     this.margin,
   })  : color = Colors.transparent,
+        disabledColor = Colors.transparent,
         outlined = true;
 
   final Widget child;
   final Color color;
+  final Color disabledColor;
   final bool expanded;
   final bool outlined;
   final EdgeInsetsGeometry? padding;
@@ -43,7 +46,7 @@ class CustomButton extends StatelessWidget {
           padding: padding ??
               const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
           decoration: BoxDecoration(
-              color: color,
+              color: onTap == null ? disabledColor : color,
               borderRadius: BorderRadius.circular(10),
               border: outlined
                   ? Border.all(
@@ -62,6 +65,7 @@ class CustomButton extends StatelessWidget {
               ),
               child: DefaultTextStyle(
                   style: TextStyle(
+                    fontSize: 17,
                     color: outlined
                         ? ColorConstants.black26
                         : ColorConstants.primaryWhite,
