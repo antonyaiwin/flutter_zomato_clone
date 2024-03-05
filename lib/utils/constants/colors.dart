@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 abstract class ColorConstants {
   static const Color primaryColorDark = Color.fromARGB(255, 211, 47, 47);
   static const Color primaryColor = Colors.red;
+  static const Color primaryColorShade10 = Color.fromRGBO(244, 67, 54, 0.3);
   static const Color primaryWhite = Color(0xffffffff);
   static const Color primaryBlack = Color(0xff000000);
   static const Color black26 = Color(0xff262626);

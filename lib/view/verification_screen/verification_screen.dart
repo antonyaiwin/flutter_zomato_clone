@@ -54,11 +54,13 @@ class _VerificationScreenState extends State<VerificationScreen> {
             CustomTextButton(
               text: 'Skip',
               textColor: ColorConstants.primaryBlack,
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeScreen(),
-                  )),
+              onTap: () => Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+                (route) => false,
+              ),
             ),
           kHSpace(20),
         ],
