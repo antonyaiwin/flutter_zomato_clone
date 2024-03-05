@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'custom_themes/elevated_button_theme.dart';
 import 'custom_themes/text_theme.dart';
 
@@ -15,12 +16,13 @@ class TAppTheme {
     textTheme: TTextTheme.lightTextTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     scaffoldBackgroundColor: Colors.white,
+    iconTheme: const IconThemeData(color: ColorConstants.primaryColor),
   );
 
   static ThemeData darkTheme = _baseTheme.copyWith(
-    brightness: Brightness.dark,
-    textTheme: TTextTheme.darkTextTheme,
-    elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
-    scaffoldBackgroundColor: Colors.black,
-  );
+      brightness: Brightness.dark,
+      textTheme: TTextTheme.darkTextTheme,
+      elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+      scaffoldBackgroundColor: Colors.black,
+      iconTheme: const IconThemeData(color: ColorConstants.primaryColor));
 }
