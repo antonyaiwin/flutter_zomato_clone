@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/view/home_screen/home_screen.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import 'glass_container.dart';
 
@@ -38,7 +39,12 @@ class LoginHeader extends StatelessWidget {
           width: 60,
           child: GlassContainer(
             onTap: () {
-              print('ontap skip');
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+              );
             },
             child: const Text(
               'Skip',
