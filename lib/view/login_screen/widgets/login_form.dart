@@ -2,9 +2,10 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/spacer.dart';
+import '../../verification_screen/verification_screen.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({
+  LoginForm({
     super.key,
     this.onCountryChanged,
     required this.selectedCountryCode,
@@ -14,6 +15,7 @@ class LoginForm extends StatelessWidget {
   final void Function(CountryCode value)? onCountryChanged;
   final String selectedCountryCode;
   final TextEditingController phoneNumberController;
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -78,27 +80,36 @@ class LoginForm extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: TextField(
-                  keyboardType: TextInputType.phone,
-                  controller: phoneNumberController,
-                  decoration: InputDecoration(
-                    prefixIcon: Padding(
-                        padding: const EdgeInsets.only(top: 2.5, right: 6),
-                        child: Text(
-                          selectedCountryCode,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        )),
-                    prefixIconConstraints: const BoxConstraints(minWidth: 0),
-                    border: InputBorder.none,
-                    hintText: 'Enter Phone Number',
-                    hintStyle: const TextStyle(color: Colors.grey),
+                child: Form(
+                  key: formKey,
+                  child: TextFormField(
+                    keyboardType: TextInputType.phone,
+                    controller: phoneNumberController,
+                    decoration: InputDecoration(
+                      prefixIcon: Padding(
+                          padding: const EdgeInsets.only(top: 2.5, right: 6),
+                          child: Text(
+                            selectedCountryCode,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                            ),
+                          )),
+                      prefixIconConstraints: const BoxConstraints(minWidth: 0),
+                      border: InputBorder.none,
+                      hintText: 'Enter Phone Number',
+                      hintStyle: const TextStyle(color: Colors.grey),
+                    ),
+                    validator: (value) {
+                      if (value!.length < 8) {
+                        return 'Please enter a valid phone number!';
+                      }
+                      return null;
+                    },
+                    onTapOutside: (event) {
+                      FocusScope.of(context).unfocus();
+                    },
                   ),
-                  onTapOutside: (event) {
-                    FocusScope.of(context).unfocus();
-                  },
                 ),
               ),
             ),
@@ -110,7 +121,19 @@ class LoginForm extends StatelessWidget {
             kHSpace(30),
             Expanded(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VerificationScreen(
+                          phoneNumber:
+                              '$selectedCountryCode-${phoneNumberController.text}',
+                        ),
+                      ),
+                    );
+                  }
+                },
                 style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
                         EdgeInsets.symmetric(vertical: 14))),
