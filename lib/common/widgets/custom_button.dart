@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
     this.onTap,
     this.expanded = true,
     this.padding,
+    this.margin,
   }) : outlined = false;
 
   // Outlined button constructor
@@ -18,6 +19,7 @@ class CustomButton extends StatelessWidget {
     this.onTap,
     this.expanded = true,
     this.padding,
+    this.margin,
   })  : color = Colors.transparent,
         outlined = true;
 
@@ -26,43 +28,47 @@ class CustomButton extends StatelessWidget {
   final bool expanded;
   final bool outlined;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(10),
-      onTap: onTap,
-      child: Container(
-        width: expanded ? double.infinity : null,
-        padding:
-            padding ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
-        decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(10),
-            border: outlined
-                ? Border.all(
-                    color: ColorConstants.black3c.withOpacity(
-                      0.18,
-                    ),
-                  )
-                : null),
-        child: Center(
-          child: IconTheme(
-            data: IconThemeData(
-              color: outlined
-                  ? ColorConstants.black26
-                  : ColorConstants.primaryWhite,
-              size: 16,
+    return Padding(
+      padding: margin ?? EdgeInsets.zero,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        onTap: onTap,
+        child: Container(
+          width: expanded ? double.infinity : null,
+          padding: padding ??
+              const EdgeInsets.symmetric(horizontal: 10, vertical: 14),
+          decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(10),
+              border: outlined
+                  ? Border.all(
+                      color: ColorConstants.black3c.withOpacity(
+                        0.18,
+                      ),
+                    )
+                  : null),
+          child: Center(
+            child: IconTheme(
+              data: IconThemeData(
+                color: outlined
+                    ? ColorConstants.black26
+                    : ColorConstants.primaryWhite,
+                size: 16,
+              ),
+              child: DefaultTextStyle(
+                  style: TextStyle(
+                    color: outlined
+                        ? ColorConstants.black26
+                        : ColorConstants.primaryWhite,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  child: child),
             ),
-            child: DefaultTextStyle(
-                style: TextStyle(
-                  color: outlined
-                      ? ColorConstants.black26
-                      : ColorConstants.primaryWhite,
-                  fontWeight: FontWeight.w600,
-                ),
-                child: child),
           ),
         ),
       ),
