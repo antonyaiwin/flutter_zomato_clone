@@ -7,13 +7,14 @@ class TAppTheme {
   static final ThemeData _baseTheme = ThemeData(
     useMaterial3: true,
     primaryColor: Colors.redAccent,
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.red),
   );
 
   static ThemeData lightTheme = _baseTheme.copyWith(
     brightness: Brightness.light,
     textTheme: TTextTheme.lightTextTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
-    scaffoldBackgroundColor: const Color(0xfff2f2f2),
+    scaffoldBackgroundColor: Colors.white,
   );
 
   static ThemeData darkTheme = _baseTheme.copyWith(
