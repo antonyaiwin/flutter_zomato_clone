@@ -19,7 +19,7 @@ class RestaurantCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      clipBehavior: Clip.hardEdge,
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: ColorConstants.primaryWhite,
         borderRadius: BorderRadius.circular(20),
