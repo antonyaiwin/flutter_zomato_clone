@@ -8,93 +8,115 @@ abstract class DummyDb {
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Biryani'),
+        name: 'Biryanibvnbvxjv hjdsknvmnmnvjbnvmncj nj  jdjnvj',
+        price: 250),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/803290/pexels-photo-803290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Pizza'),
+        name: 'Pizza',
+        price: 169),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/616353/pexels-photo-616353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Chicken'),
+        name: 'Chicken',
+        price: 240),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/4149260/pexels-photo-4149260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Fried Rice'),
+        name: 'Fried Rice',
+        price: 230),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/18620325/pexels-photo-18620325/free-photo-of-chicken-mandi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Chicken Mandi'),
+        name: 'Chicken Mandi',
+        price: 250),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Shawarma'),
+        name: 'Shawarma',
+        price: 165),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/9609857/pexels-photo-9609857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Parotta'),
+        name: 'Parotta',
+        price: 20),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/1027811/pexels-photo-1027811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Cake'),
+        name: 'Cake',
+        price: 600),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=600',
-        name: 'Chinese'),
+        name: 'Chinese',
+        price: 180),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/8346891/pexels-photo-8346891.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Paratha'),
+        name: 'Paratha',
+        price: 20),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/3738730/pexels-photo-3738730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Burger'),
+        name: 'Burger',
+        price: 149),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/4611424/pexels-photo-4611424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         // 'https://images.pexels.com/photos/8887055/pexels-photo-8887055.jpeg?auto=compress&cs=tinysrgb&w=600',
-        name: 'North Indian'),
+        name: 'North Indian',
+        price: 280),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/11115801/pexels-photo-11115801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Paneer'),
+        name: 'Paneer',
+        price: 150),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Dosa'),
+        name: 'Dosa',
+        price: 120),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/15801053/pexels-photo-15801053/free-photo-of-fried-rolls-with-vegetables.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Rolls'),
+        name: 'Rolls',
+        price: 120),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/8018000/pexels-photo-8018000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Chilli Chicken'),
+        name: 'Chilli Chicken',
+        price: 120),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/2284604/pexels-photo-2284604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         // 'https://images.pexels.com/photos/3209101/pexels-photo-3209101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Chowmein'),
+        name: 'Chowmein',
+        price: 180),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/5410418/pexels-photo-5410418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'South Indian'),
+        name: 'South Indian',
+        price: 110),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Ice Cream'),
+        name: 'Ice Cream',
+        price: 60),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/4331491/pexels-photo-4331491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Idli'),
+        name: 'Idli',
+        price: 40),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/18803177/pexels-photo-18803177/free-photo-of-plate-with-greasy-momos-dumplings.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Momos'),
+        name: 'Momos',
+        price: 150),
     DishModel(
         imageUrl:
             'https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        name: 'Fries'),
+        name: 'Fries',
+        price: 150),
   ];
 
   static const List<String> _foodTypeList = [

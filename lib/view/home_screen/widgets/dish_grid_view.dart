@@ -35,6 +35,8 @@ class DishGridView extends StatelessWidget {
               kVSpace(5),
               Text(
                 item.name,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
                 style: TextStyle(
                   color: ColorConstants.black3c.withOpacity(0.7),
                 ),

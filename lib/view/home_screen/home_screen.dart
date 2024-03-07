@@ -5,17 +5,22 @@ import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/home_screen/widgets/slivers/location_sliver_app_bar.dart';
 import 'package:flutter_zomato_clone/view/login_screen/widgets/labeled_divider.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 import 'widgets/dish_grid_view.dart';
-import 'widgets/elevated_search_field.dart';
-import 'widgets/main_chips.dart';
 import 'widgets/restaurant_card.dart';
+import 'widgets/slivers/main_chips_sliver_app_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  final double elevatedSearchFieldHeight = 55;
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final List<GlobalKey> listItemKeyList = List.generate(
+      DummyDb.restaurants.length,
+      (index) => GlobalKey(debugLabel: index.toString()));
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +52,11 @@ class HomeScreen extends StatelessWidget {
             const MainChipsSliverAppBar(),
           ],
           body: ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
             padding: const EdgeInsets.all(15),
             itemBuilder: (context, index) {
               var item = DummyDb.restaurants[index];
-              return RestaurantCard(item: item);
+              return RestaurantCard(
+                  itemKey: listItemKeyList[index], item: item);
             },
             separatorBuilder: (context, index) {
               return kVSpace(20);
