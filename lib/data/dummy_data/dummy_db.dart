@@ -161,19 +161,36 @@ abstract class DummyDb {
     'Crunchy Crust Pies',
     'Crepes and Coffee Corner',
   ];
-
+  static const List<String> placesInErnakulam = [
+    'Edappally',
+    'Ernakulam',
+    'MG Road',
+    'Vyttila',
+    'Kakkanad',
+    'Cheranelloor',
+    'Kalamassery',
+    'Tripunithura',
+    'Kaloor',
+    'Palarivattom',
+    'Kadavanthra',
+    'Panampilly Nagar',
+    'High Court',
+    'Marine Drive',
+  ];
   static List<RestaurantModel> get restaurants {
     return List.generate(_restaurantList.length, (index) {
       List newDishes = [];
       newDishes.addAll(dishList);
       newDishes.shuffle();
       return RestaurantModel(
-          foodTypes: List.generate(2,
+          foodTypes: List.generate(3,
               (index) => _foodTypeList[Random().nextInt(_foodTypeList.length)]),
           rating: Random().nextDouble() * 5,
+          ratingCount: '${Random().nextInt(600) + 100}',
+          place: placesInErnakulam[Random().nextInt(placesInErnakulam.length)],
           distanceInKM: Random().nextDouble() * 5,
           dishes: List.generate(Random().nextInt(10) + 1, (index) {
-            return newDishes[index];
+            return newDishes.removeAt(index);
           }),
           name: _restaurantList[index]);
     });

@@ -7,7 +7,7 @@ import 'package:flutter_zomato_clone/view/home_screen/widgets/slivers/location_s
 import 'package:flutter_zomato_clone/view/login_screen/widgets/labeled_divider.dart';
 
 import 'widgets/dish_grid_view.dart';
-import 'widgets/restaurant_card.dart';
+import '../../common/widgets/restaurant_card.dart';
 import 'widgets/slivers/main_chips_sliver_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
