@@ -29,7 +29,7 @@ class ElevatedSearchField extends StatelessWidget {
           Text(
             'Restaurant name or a dish...',
             style: TextStyle(
-              color: ColorConstants.black3c.withOpacity(0.8),
+              color: ColorConstants.black3c.withOpacity(0.5),
               fontWeight: FontWeight.w500,
               fontSize: 16,
             ),
