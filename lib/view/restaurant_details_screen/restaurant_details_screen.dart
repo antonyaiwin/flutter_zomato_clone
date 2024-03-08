@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
+import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/home_screen/widgets/slivers/main_chips_sliver_app_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -18,6 +19,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
+            surfaceTintColor: Colors.transparent,
             pinned: true,
             expandedHeight: 310,
             actions: innerBoxIsScrolled
@@ -52,28 +54,41 @@ class RestaurantDetailsScreen extends StatelessWidget {
           ),
           const MainChipsSliverAppBar(),
         ],
-        body: ListView.separated(
-          padding: EdgeInsets.zero,
-          itemBuilder: (context, index) {
-            Map catList = DummyDb.expansionCategoryList[index];
-            return ExpansionTile(
-              childrenPadding: const EdgeInsets.symmetric(horizontal: 12),
-              title: Text(catList['category_title']),
-              initiallyExpanded: true,
-              maintainState: true,
-              children: List.generate(
-                catList['dish_list'].length,
-                (index) {
-                  Map dishItem = catList['dish_list'][index];
-                  return DishTile(dishItem: dishItem);
-                },
-              ),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return const Divider();
-          },
-          itemCount: DummyDb.expansionCategoryList.length,
+        body: Container(
+          color: Colors.grey.shade100,
+          child: ListView.separated(
+            padding: const EdgeInsets.only(top: 2, bottom: 100),
+            itemBuilder: (context, index) {
+              Map catList = DummyDb.expansionCategoryList[index];
+              return ExpansionTile(
+                iconColor: ColorConstants.primaryBlack,
+                backgroundColor: ColorConstants.primaryWhite,
+                collapsedBackgroundColor: ColorConstants.primaryWhite,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                collapsedShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                childrenPadding: const EdgeInsets.symmetric(horizontal: 12),
+                title: Text(catList['category_title']),
+                initiallyExpanded: true,
+                maintainState: true,
+                children: List.generate(
+                  catList['dish_list'].length,
+                  (index) {
+                    Map dishItem = catList['dish_list'][index];
+                    return DishTile(
+                      dishItem: dishItem,
+                      showDivider: catList['dish_list'].length - 1 != index,
+                    );
+                  },
+                ),
+              );
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(height: 15);
+            },
+            itemCount: DummyDb.expansionCategoryList.length,
+          ),
         ),
       ),
     );

@@ -66,7 +66,7 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
             kVSpace(25),
             Row(
               children: [
-                const DietIcon.vegetarian(),
+                const DietIcon.veg(),
                 kHSpace(8),
                 Text(
                   'Are you a vegetarian?',

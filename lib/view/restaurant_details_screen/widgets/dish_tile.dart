@@ -9,9 +9,11 @@ class DishTile extends StatelessWidget {
   const DishTile({
     super.key,
     required this.dishItem,
+    required this.showDivider,
   });
 
   final Map dishItem;
+  final bool showDivider;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,9 @@ class DishTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const DietIcon.vegetarian(),
+                    if (dishItem['diet_type'] == 'veg') const DietIcon.veg(),
+                    if (dishItem['diet_type'] == 'non-veg')
+                      const DietIcon.nonVeg(),
                     const SizedBox(height: 5),
                     Text(
                       dishItem['dish_name'],
@@ -105,12 +109,13 @@ class DishTile extends StatelessWidget {
             ],
           ),
         ),
-        DottedDashedLine(
-          height: 1,
-          width: double.infinity,
-          axis: Axis.horizontal,
-          dashColor: ColorConstants.black3c.withOpacity(0.15),
-        ),
+        if (showDivider)
+          DottedDashedLine(
+            height: 1,
+            width: double.infinity,
+            axis: Axis.horizontal,
+            dashColor: ColorConstants.black3c.withOpacity(0.15),
+          ),
       ],
     );
   }

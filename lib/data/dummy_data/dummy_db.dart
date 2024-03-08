@@ -218,7 +218,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -228,7 +228,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -238,7 +238,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -248,7 +248,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -258,7 +258,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -268,7 +268,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
       ]
     },
@@ -283,7 +283,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -293,7 +293,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -303,19 +303,19 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
         {
           'dish_name':
-              'Spicy Mandi  uhj          ehgjhjhjv dhjh uj j hujn hvuh jnjd nvju hjj heru hjj hj  dg rv',
+              'Spicy Mandi With Large Portion of rice and large pertion of salads and mayonese.',
           'dish_description':
-              'Spicy Mandi  whqjahjhn      fh hufhjmn j  hufhcjsfjujn yfu jhnfjmujvn ufjhjhc ujnjfsh y yfuhf hcnjf      yg febrfyfuhrfvbh fnbvye ujfknfh b nm sf bh uhbu yurh uuru ruhy fjn cnsbsbhb hhbhsfyshjfkcknxhjs uijhfnbygf8u j  yer fjhjffcvnbbygf yyheufsdjfbsh nbdusuuh je m nugujb hbhgyugy gbhbsdhdjbyvf',
+              'Spicy Mandi is consisting mainly of meat and rice with a special blend of spices, cooked in a pit. It is popular and commonly consumed in most areas of the Arabian Peninsula, especially between the Yemeni people, and even considered a staple dish in many regions',
           'amount': 228.0,
           'rating': 4.5,
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -325,7 +325,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -335,7 +335,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'dish_type': 'non-veg'
+          'diet_type': 'non-veg'
         },
       ]
     },
