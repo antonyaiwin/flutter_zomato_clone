@@ -206,4 +206,138 @@ abstract class DummyDb {
       'sub_title': 'Use code GOT150 | above ₹499',
     },
   ];
+  static List<Map<String, dynamic>> expansionCategoryList = [
+    {
+      'category_title': 'Main Course (With Rice)',
+      'dish_list': [
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+      ]
+    },
+    {
+      'category_title': 'Mandi',
+      'dish_list': [
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name':
+              'Spicy Mandi  uhj          ehgjhjhjv dhjh uj j hujn hvuh jnjd nvju hjj heru hjj hj  dg rv',
+          'dish_description':
+              'Spicy Mandi  whqjahjhn      fh hufhjmn j  hufhcjsfjujn yfu jhnfjmujvn ufjhjhc ujnjfsh y yfuhf hcnjf      yg febrfyfuhrfvbh fnbvye ujfknfh b nm sf bh uhbu yurh uuru ruhy fjn cnsbsbhb hhbhsfyshjfkcknxhjs uijhfnbygf8u j  yer fjhjffcvnbbygf yyheufsdjfbsh nbdusuuh je m nugujb hbhgyugy gbhbsdhdjbyvf',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+        {
+          'dish_name': 'Spicy Mandi',
+          'dish_description': 'Spicy Mandi',
+          'amount': 228.0,
+          'rating': 4.5,
+          'rating_count': 1123,
+          'image_url':
+              'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'dish_type': 'non-veg'
+        },
+      ]
+    },
+  ];
 }
