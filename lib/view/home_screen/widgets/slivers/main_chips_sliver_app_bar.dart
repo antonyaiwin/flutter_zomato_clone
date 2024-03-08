@@ -11,6 +11,7 @@ class MainChipsSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SliverAppBar(
       surfaceTintColor: Colors.transparent,
+      automaticallyImplyLeading: false,
       toolbarHeight: 50,
       flexibleSpace: Center(
         child: MainChips(),

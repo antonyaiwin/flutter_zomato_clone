@@ -5,13 +5,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/common/widgets/time_distance_widget.dart';
-import 'package:flutter_zomato_clone/view/home_screen/widgets/main_chips.dart';
 import 'package:flutter_zomato_clone/view/home_screen/widgets/rating_card.dart';
 import 'package:flutter_zomato_clone/view/home_screen/widgets/slivers/main_chips_sliver_app_bar.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../model/restaurant/restaurant_model.dart';
 import '../../utils/constants/colors.dart';
+import 'widgets/offer_carousel.dart';
 
 class RestaurantDetailsScreen extends StatelessWidget {
   const RestaurantDetailsScreen({super.key, required this.item});
@@ -24,28 +24,31 @@ class RestaurantDetailsScreen extends StatelessWidget {
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverAppBar(
             pinned: true,
-            expandedHeight: 400,
-            actions: [
-              Icon(
-                Bootstrap.search,
-                size: 20,
-              ),
-              kHSpace(15),
-              Icon(
-                Bootstrap.heart,
-                size: 20,
-              ),
-              kHSpace(15),
-              Icon(
-                MingCute.share_forward_line,
-              ),
-              kHSpace(10),
-              Icon(
-                Icons.more_vert,
-              ),
-              kHSpace(20),
-            ],
+            expandedHeight: 310,
+            actions: innerBoxIsScrolled
+                ? null
+                : [
+                    Icon(
+                      Bootstrap.search,
+                      size: 20,
+                    ),
+                    kHSpace(15),
+                    Icon(
+                      Bootstrap.heart,
+                      size: 20,
+                    ),
+                    kHSpace(15),
+                    Icon(
+                      MingCute.share_forward_line,
+                    ),
+                    kHSpace(10),
+                    Icon(
+                      Icons.more_vert,
+                    ),
+                    kHSpace(20),
+                  ],
             flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
               background: DefaultTextStyle(
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: ColorConstants.black3c,
@@ -113,11 +116,12 @@ class RestaurantDetailsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
+                    const SizedBox(height: 10),
+                    OfferCarousel(),
                   ],
                 ),
               ),
-              title: MainChips(),
               centerTitle: true,
               titlePadding: EdgeInsets.symmetric(vertical: 5),
               expandedTitleScale: 1,
@@ -126,17 +130,18 @@ class RestaurantDetailsScreen extends StatelessWidget {
           MainChipsSliverAppBar(),
         ],
         body: ListView.separated(
-            padding: EdgeInsets.zero,
-            itemBuilder: (context, index) {
-              return Container(
-                height: 50,
-                color: Colors.amber[100 * (index % 9 + 1)],
-              );
-            },
-            separatorBuilder: (context, index) {
-              return const Divider();
-            },
-            itemCount: 50),
+          padding: EdgeInsets.zero,
+          itemBuilder: (context, index) {
+            return Container(
+              height: 50,
+              color: Colors.amber[100 * (index % 9 + 1)],
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const Divider();
+          },
+          itemCount: 50,
+        ),
       ),
     );
   }

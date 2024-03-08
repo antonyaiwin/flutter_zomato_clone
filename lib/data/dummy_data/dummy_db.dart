@@ -195,4 +195,15 @@ abstract class DummyDb {
           name: _restaurantList[index]);
     });
   }
+
+  static const List offersMap = [
+    {
+      'title': '50% OFF up to ₹100',
+      'sub_title': 'Use code WELCOM50 | above ₹159',
+    },
+    {
+      'title': 'Flat ₹150 OFF',
+      'sub_title': 'Use code GOT150 | above ₹499',
+    },
+  ];
 }
