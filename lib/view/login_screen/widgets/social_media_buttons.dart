@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/common/widgets/custom_button.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
+
+import 'more_login_options.dart';
 
 class SocialMediaLoginButtons extends StatelessWidget {
   const SocialMediaLoginButtons({
@@ -37,53 +38,9 @@ class SocialMediaLoginButtons extends StatelessWidget {
             showMyModalBottomSheet(
               context: context,
               height: 210,
-              child: Column(
-                children: [
-                  CustomButton.outlined(
-                    onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.facebook,
-                          color: Colors.blue.shade700,
-                          size: 30,
-                        ),
-                        kHSpace(10),
-                        Text(
-                          'Continue with Facebook',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: ColorConstants.black3c.withOpacity(0.6),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  kVSpace(10),
-                  CustomButton.outlined(
-                    onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.email,
-                          color: ColorConstants.black3c,
-                          size: 30,
-                        ),
-                        kHSpace(10),
-                        Text(
-                          'Continue with Email',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: ColorConstants.black3c.withOpacity(0.6),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+              initialChildSize: 0.25,
+              maxChildSize: 0.25,
+              builder: (context, scrollController) => const MoreLoginOptions(),
             );
           },
           child: Container(
@@ -96,6 +53,7 @@ class SocialMediaLoginButtons extends StatelessWidget {
             child: const Icon(
               Icons.more_horiz,
               size: 32,
+              color: ColorConstants.primaryBlack,
             ),
           ),
         ),

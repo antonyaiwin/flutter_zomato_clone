@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/common/widgets/custom_button.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/home_screen/home_screen.dart';
 import 'package:flutter_zomato_clone/view/personal_details_screen/personal_details_screen.dart';
+import 'package:flutter_zomato_clone/view/verification_screen/widgets/more_verification_options.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
@@ -127,57 +127,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 onTap: () {
                   showMyModalBottomSheet(
                       context: context,
-                      height: 200,
+                      minChildSize: 0.25,
+                      maxChildSize: 0.25,
+                      initialChildSize: 0.25,
                       contentPadding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 10),
-                            child: Text(
-                              'More options',
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                          Divider(
-                            color: ColorConstants.black3c.withOpacity(0.1),
-                          ),
-                          CustomButton.outlined(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                const Icon(Icons.whatshot),
-                                kHSpace(6),
-                                const Text(
-                                  'Sent OTP on WhatsApp',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 16),
-                                )
-                              ],
-                            ),
-                          ),
-                          CustomButton.outlined(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            onTap: () {},
-                            child: Row(
-                              children: [
-                                const Icon(Icons.call),
-                                kHSpace(6),
-                                const Text(
-                                  'Call me instead',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 16),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ));
+                      builder: (context, scrollController) =>
+                          const MoreVerificationOptions());
                 },
               ),
             const Spacer(),
