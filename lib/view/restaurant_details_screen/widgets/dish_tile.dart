@@ -54,6 +54,7 @@ class DishTile extends StatelessWidget {
                           image: NetworkImage(
                             dishItem['image_url'],
                           ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
