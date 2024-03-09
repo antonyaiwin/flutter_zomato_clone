@@ -238,7 +238,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'diet_type': 'non-veg'
+          'diet_type': 'egg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -258,7 +258,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'diet_type': 'veg'
+          'diet_type': 'egg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -283,7 +283,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'diet_type': 'non-veg'
+          'diet_type': 'egg'
         },
         {
           'dish_name': 'Spicy Mandi',
@@ -325,7 +325,7 @@ abstract class DummyDb {
           'rating_count': 1123,
           'image_url':
               'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'diet_type': 'non-veg'
+          'diet_type': 'egg'
         },
         {
           'dish_name': 'Spicy Mandi',
