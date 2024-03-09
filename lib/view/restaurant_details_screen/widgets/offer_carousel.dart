@@ -89,7 +89,7 @@ class _OfferCarouselState extends State<OfferCarousel> {
             Container(
               height: 20,
               width: 20,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 2),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),

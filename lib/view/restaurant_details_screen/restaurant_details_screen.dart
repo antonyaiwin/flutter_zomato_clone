@@ -69,7 +69,11 @@ class RestaurantDetailsScreen extends StatelessWidget {
                 collapsedShape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 childrenPadding: const EdgeInsets.symmetric(horizontal: 12),
-                title: Text(catList['category_title']),
+                title: Text(
+                  catList['category_title'],
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, fontSize: 18),
+                ),
                 initiallyExpanded: true,
                 maintainState: true,
                 children: List.generate(

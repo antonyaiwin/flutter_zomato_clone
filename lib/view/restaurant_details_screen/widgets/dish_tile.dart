@@ -1,6 +1,7 @@
 import 'package:dotted_dashed_line/dotted_dashed_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
+import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/dish_details_bottom_sheet.dart';
 
 import '../../../utils/constants/colors.dart';
 import 'dish_details_column.dart';
@@ -23,10 +24,9 @@ class DishTile extends StatelessWidget {
           onTap: () {
             showMyModalBottomSheet(
               context: context,
-              child: Column(
-                children: [
-                  DishDetailsColumn(dishItem: dishItem, showPrice: false)
-                ],
+              builder: (context, scrollController) => DishDetailsBottomSheet(
+                dishItem: dishItem,
+                controller: scrollController,
               ),
             );
           },
