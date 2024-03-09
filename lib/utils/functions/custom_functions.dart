@@ -22,30 +22,32 @@ void showMyModalBottomSheet({
       return GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: () => Navigator.pop(context),
-        child: GestureDetector(
-          onTap: () {},
-          child: DraggableScrollableSheet(
-            initialChildSize: initialChildSize,
-            minChildSize: minChildSize,
-            maxChildSize: maxChildSize,
-            expand: expand,
-            snap: snap,
-            builder: (context, scrollController) => Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Positioned(
-                  top: -60,
-                  left: 0,
-                  right: 0,
-                  child: CircleAvatar(
-                    backgroundColor: CupertinoColors.black.withOpacity(0.7),
-                    radius: 23,
-                    child: const Icon(
-                      MingCute.close_fill,
-                    ),
+        child: DraggableScrollableSheet(
+          initialChildSize: initialChildSize,
+          minChildSize: minChildSize,
+          maxChildSize: maxChildSize,
+          expand: expand,
+          snap: snap,
+          builder: (context, scrollController) => Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Positioned(
+                top: -60,
+                left: 0,
+                right: 0,
+                child: CircleAvatar(
+                  backgroundColor: CupertinoColors.black.withOpacity(0.7),
+                  radius: 23,
+                  child: const Icon(
+                    MingCute.close_fill,
                   ),
                 ),
-                Ink(
+              ),
+              InkWell(
+                onTap: () {},
+                overlayColor:
+                    const MaterialStatePropertyAll(Colors.transparent),
+                child: Ink(
                   height: height,
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.vertical(
@@ -56,8 +58,8 @@ void showMyModalBottomSheet({
                   padding: contentPadding,
                   child: builder(context, scrollController),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       );
