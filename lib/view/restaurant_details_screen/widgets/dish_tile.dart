@@ -33,6 +33,7 @@ class DishTile extends StatelessWidget {
           },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 10),
+            height: 192,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
