@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
+import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
+import 'package:flutter_zomato_clone/utils/constants/enums.dart';
 
 import '../../../common/widgets/diet_icon.dart';
 import '../../../utils/constants/colors.dart';
@@ -11,7 +13,7 @@ class DishDetailsColumn extends StatelessWidget {
     required this.showPrice,
   });
 
-  final Map dishItem;
+  final DishItemModel dishItem;
   final bool showPrice;
 
   @override
@@ -19,12 +21,12 @@ class DishDetailsColumn extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (dishItem['diet_type'] == 'veg') const DietIcon.veg(),
-        if (dishItem['diet_type'] == 'non-veg') const DietIcon.nonVeg(),
-        if (dishItem['diet_type'] == 'egg') const DietIcon.egg(),
+        if (dishItem.dietType == DietType.veg) const DietIcon.veg(),
+        if (dishItem.dietType == DietType.nonVeg) const DietIcon.nonVeg(),
+        if (dishItem.dietType == DietType.egg) const DietIcon.egg(),
         const SizedBox(height: 5),
         Text(
-          dishItem['dish_name'],
+          dishItem.dishName,
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.titleMedium,
@@ -40,7 +42,7 @@ class DishDetailsColumn extends StatelessWidget {
                 color: Colors.amber.shade50.withOpacity(0.5),
               ),
               child: RatingStars(
-                value: dishItem['rating'],
+                value: dishItem.rating,
                 starSize: 11,
                 valueLabelVisibility: false,
                 starColor: Colors.amber,
@@ -48,7 +50,7 @@ class DishDetailsColumn extends StatelessWidget {
             ),
             const SizedBox(width: 3),
             Text(
-              '${dishItem['rating_count']} ratings',
+              '${dishItem.ratingCount} ratings',
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w100,
@@ -59,11 +61,11 @@ class DishDetailsColumn extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         if (showPrice) ...[
-          Text('₹${dishItem['amount']}'),
+          Text('₹${dishItem.amount}'),
           const SizedBox(height: 10),
         ],
         Text(
-          '${dishItem['dish_description']}',
+          dishItem.dishDescription,
           maxLines: 6,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(

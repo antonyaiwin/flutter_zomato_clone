@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter_zomato_clone/model/dishes/dish_model.dart';
+import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
 import 'package:flutter_zomato_clone/model/restaurant/restaurant_model.dart';
 
 abstract class DummyDb {
@@ -206,7 +207,7 @@ abstract class DummyDb {
       'sub_title': 'Use code GOT150 | above ₹499',
     },
   ];
-  static List<Map<String, dynamic>> expansionCategoryList = [
+  static const List<Map<String, dynamic>> _expansionCategoryList = [
     {
       'category_title': 'Main Course (With Rice)',
       'dish_list': [
@@ -378,4 +379,14 @@ abstract class DummyDb {
       ]
     },
   ];
+
+  // model Lists
+  //
+  //
+  //
+
+  static List<RecipeCategoryModel> recipeCategoryModelList =
+      _expansionCategoryList
+          .map((element) => RecipeCategoryModel.fromJson(element))
+          .toList();
 }

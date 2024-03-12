@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/custom_button.dart';
+import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 
 import '../../../common/widgets/add_item_button.dart';
@@ -8,14 +9,14 @@ import 'dish_details_column.dart';
 class DishDetailsBottomSheet extends StatefulWidget {
   const DishDetailsBottomSheet(
       {super.key, required this.dishItem, required this.controller});
-  final Map<dynamic, dynamic> dishItem;
+  final DishItemModel dishItem;
   final ScrollController controller;
   @override
   State<DishDetailsBottomSheet> createState() => _DishDetailsBottomSheetState();
 }
 
 class _DishDetailsBottomSheetState extends State<DishDetailsBottomSheet> {
-  Map get dishItem => widget.dishItem;
+  DishItemModel get dishItem => widget.dishItem;
   int itemCount = 1;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class _DishDetailsBottomSheetState extends State<DishDetailsBottomSheet> {
                     child: AspectRatio(
                       aspectRatio: 5 / 3,
                       child: Image.network(
-                        dishItem['image_url'],
+                        dishItem.imageUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -89,7 +90,7 @@ class _DishDetailsBottomSheetState extends State<DishDetailsBottomSheet> {
                 child: CustomButton(
                   onTap: () {},
                   child: Text(
-                    'Add item ₹${(dishItem['amount'] * itemCount).toStringAsFixed(0)}',
+                    'Add item ₹${(dishItem.amount * itemCount).toStringAsFixed(0)}',
                   ),
                 ),
               ),
