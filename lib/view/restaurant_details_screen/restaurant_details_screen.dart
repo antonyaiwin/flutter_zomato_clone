@@ -33,27 +33,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollController.addListener(() {
-      double offset = _scrollController.offset;
-      double childPosition = 0;
-      for (var i = 0; i <= DummyDb.recipeCategoryModelList.length; i++) {
-        int num = DummyDb.recipeCategoryModelList[i].dishList.length;
-        childPosition += expansionHeaderHeight +
-            containerHeight * num +
-            dashedLineHeight * (num - 1) +
-            dividerHeight;
-        if (offset - 310 + 70 < childPosition) {
-          DefaultTabController.of(tabContext!).animateTo(
-            i,
-          );
-          break;
-        }
-
-        // print('iteration $i\n child Position = $childPosition');
-      }
-
-      // print('offset : ${_scrollController.offset}');
-    });
+    _scrollController.addListener(scrollListener);
     super.initState();
   }
 
@@ -63,11 +43,34 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
     super.dispose();
   }
 
-  void scrollToIndex(int index) {
-    // print('index = $index\n');
-    if (index == 0) {
-      animateScrollTo(_scrollController.position.minScrollExtent);
+// ScrollController Listener
+  void scrollListener() {
+    double offset = _scrollController.offset;
+    double childPosition = 0;
+    for (var i = 0; i <= DummyDb.recipeCategoryModelList.length; i++) {
+      int num = DummyDb.recipeCategoryModelList[i].dishList.length;
+      childPosition += expansionHeaderHeight +
+          containerHeight * num +
+          dashedLineHeight * (num - 1) +
+          dividerHeight;
+      if (offset - 310 + 70 < childPosition) {
+        DefaultTabController.of(tabContext!).animateTo(
+          i,
+        );
+        break;
+      }
+
+      // print('iteration $i\n child Position = $childPosition');
     }
+
+    // print('offset : ${_scrollController.offset}');
+  }
+
+  // function to scroll listView to specified offset
+  Future<void> scrollToIndex(int index) async {
+    // print('index = $index\n');
+    _scrollController.removeListener(scrollListener);
+
     double childPosition = 0;
     for (var i = 0; i < index; i++) {
       int num = DummyDb.recipeCategoryModelList[i].dishList.length;
@@ -78,11 +81,12 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
       // print('iteration $i\n child Position = $childPosition');
     }
     childPosition += 310 - 70;
-    animateScrollTo(childPosition);
+    await animateScrollTo(childPosition);
+    _scrollController.addListener(scrollListener);
   }
 
-  void animateScrollTo(double offset) {
-    _scrollController.animateTo(offset,
+  Future<void> animateScrollTo(double offset) async {
+    await _scrollController.animateTo(offset,
         duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
   }
 
