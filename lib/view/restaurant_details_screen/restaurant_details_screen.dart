@@ -36,17 +36,19 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
     _scrollController.addListener(() {
       double offset = _scrollController.offset;
       double childPosition = 0;
-      for (var i = 0; i < DummyDb.recipeCategoryModelList.length; i++) {
-        if (offset - 310 + 70 >= childPosition) {
-          DefaultTabController.of(tabContext!).animateTo(
-            i,
-          );
-        }
+      for (var i = 0; i <= DummyDb.recipeCategoryModelList.length; i++) {
         int num = DummyDb.recipeCategoryModelList[i].dishList.length;
         childPosition += expansionHeaderHeight +
             containerHeight * num +
             dashedLineHeight * (num - 1) +
             dividerHeight;
+        if (offset - 310 + 70 < childPosition) {
+          DefaultTabController.of(tabContext!).animateTo(
+            i,
+          );
+          break;
+        }
+
         // print('iteration $i\n child Position = $childPosition');
       }
 
