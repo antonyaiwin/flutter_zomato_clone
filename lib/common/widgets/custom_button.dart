@@ -25,6 +25,18 @@ class CustomButton extends StatelessWidget {
         disabledColor = Colors.transparent,
         outlined = true;
 
+  // Text button constructor
+  const CustomButton.text({
+    super.key,
+    required this.child,
+    this.onTap,
+    this.expanded = true,
+    this.padding,
+    this.margin,
+  })  : color = Colors.transparent,
+        disabledColor = Colors.transparent,
+        outlined = false;
+
   final Widget child;
   final Color color;
   final Color disabledColor;
