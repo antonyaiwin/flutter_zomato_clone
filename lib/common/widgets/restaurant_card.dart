@@ -44,6 +44,9 @@ class _RestaurantCardState extends State<RestaurantCard> {
       child: VisibilityDetector(
         key: widget.itemKey,
         onVisibilityChanged: (VisibilityInfo visibilityInfo) {
+          if (!context.mounted) {
+            return;
+          }
           var visiblePercentage = visibilityInfo.visibleFraction * 100;
 
           if (autoPlay && visibilityInfo.visibleFraction < 1) {
