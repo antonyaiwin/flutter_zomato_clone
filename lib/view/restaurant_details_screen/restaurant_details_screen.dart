@@ -1,10 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:icons_plus/icons_plus.dart';
+
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
 import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
-import 'package:flutter_zomato_clone/view/home_screen/widgets/main_chips.dart';
-import 'package:icons_plus/icons_plus.dart';
+import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/restaurant_chips.dart';
 
 import '../../model/restaurant/restaurant_model.dart';
 import 'widgets/dish_menu_button.dart';
@@ -17,6 +19,7 @@ class RestaurantDetailsScreen extends StatefulWidget {
 
   final RestaurantModel item;
 
+  static DishFilter dishFilter = DishFilter._();
   @override
   State<RestaurantDetailsScreen> createState() =>
       _RestaurantDetailsScreenState();
@@ -132,11 +135,15 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                 expandedTitleScale: 1,
               ),
               collapsedHeight: kToolbarHeight + 50,
-              bottom: const PreferredSize(
-                  preferredSize: Size.fromHeight(0),
+              bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(0),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: MainChips(),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: RestaurantChips(
+                      onChipToggled: () {
+                        setState(() {});
+                      },
+                    ),
                   )),
             ),
             SliverPadding(
@@ -245,4 +252,50 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
       ),
     );
   }
+}
+
+class DishFilter {
+  bool veg = false;
+  bool nonVeg = false;
+  bool egg = false;
+  bool topRated = false;
+  DishSortType sortType = DishSortType.unknown;
+  DishFilter._();
+
+  bool get filtered => veg || nonVeg || egg || topRated;
+
+  void toggleVeg() {
+    veg = !veg;
+  }
+
+  void toggleNonVeg() {
+    nonVeg = !nonVeg;
+  }
+
+  void toggleEgg() {
+    egg = !egg;
+  }
+
+  void toggleTopRated() {
+    topRated = !topRated;
+  }
+
+  void clearAll() {
+    veg = false;
+    nonVeg = false;
+    egg = false;
+    topRated = false;
+    sortType = DishSortType.unknown;
+  }
+}
+
+enum DishSortType {
+  priceLowToHigh(value: 'price_low_to_high'),
+  priceHighToLow(value: 'price_high_to_low'),
+  ratingHighToLow(value: 'rating_high_to_low'),
+  unknown(value: 'unknown');
+
+  final String value;
+
+  const DishSortType({required this.value});
 }

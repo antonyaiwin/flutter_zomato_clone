@@ -3,7 +3,7 @@ import 'package:icons_plus/icons_plus.dart';
 
 import '../../../common/widgets/spacer.dart';
 import '../../../utils/constants/colors.dart';
-import 'elevated_card.dart';
+import '../../../common/widgets/elevated_card.dart';
 
 class MainChips extends StatelessWidget {
   const MainChips({
