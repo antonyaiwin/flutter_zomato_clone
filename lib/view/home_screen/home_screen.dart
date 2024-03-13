@@ -24,45 +24,35 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: ColorConstants.primaryWhite,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
-
-    return SafeArea(
-      child: Scaffold(
-        body: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            const LocationSliverAppBar(),
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  kVSpace(10),
-                  const LabeledDivider(label: 'WHAT\'S ON YOUR MIND?'),
-                  kVSpace(20),
-                  const DishGridView(),
-                  kVSpace(20),
-                  const LabeledDivider(label: 'ALL RESTAURANTS'),
-                  kVSpace(20),
-                ],
-              ),
+    return Scaffold(
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) => [
+          const LocationSliverAppBar(),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                kVSpace(10),
+                const LabeledDivider(label: 'WHAT\'S ON YOUR MIND?'),
+                kVSpace(20),
+                const DishGridView(),
+                kVSpace(20),
+                const LabeledDivider(label: 'ALL RESTAURANTS'),
+                kVSpace(20),
+              ],
             ),
-            const MainChipsSliverAppBar(),
-          ],
-          body: ListView.separated(
-            padding: const EdgeInsets.all(15),
-            itemBuilder: (context, index) {
-              var item = DummyDb.restaurants[index];
-              return RestaurantCard(
-                  itemKey: listItemKeyList[index], item: item);
-            },
-            separatorBuilder: (context, index) {
-              return kVSpace(20);
-            },
-            itemCount: DummyDb.restaurants.length,
           ),
+          const MainChipsSliverAppBar(),
+        ],
+        body: ListView.separated(
+          padding: const EdgeInsets.all(15),
+          itemBuilder: (context, index) {
+            var item = DummyDb.restaurants[index];
+            return RestaurantCard(itemKey: listItemKeyList[index], item: item);
+          },
+          separatorBuilder: (context, index) {
+            return kVSpace(20);
+          },
+          itemCount: DummyDb.restaurants.length,
         ),
       ),
     );

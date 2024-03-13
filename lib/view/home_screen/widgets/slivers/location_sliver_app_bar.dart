@@ -13,12 +13,15 @@ class LocationSliverAppBar extends StatelessWidget {
     return SliverAppBar(
       primary: false,
       surfaceTintColor: Colors.transparent,
-      expandedHeight: kToolbarHeight + elevatedSearchFieldHeight,
+      expandedHeight: kTextTabBarHeight +
+          elevatedSearchFieldHeight +
+          MediaQuery.of(context).padding.top,
       flexibleSpace: FlexibleSpaceBar(
         collapseMode: CollapseMode.pin,
         expandedTitleScale: 1,
         background: Padding(
           padding: EdgeInsets.only(
+            top: MediaQuery.of(context).padding.top,
             bottom: elevatedSearchFieldHeight,
             left: 16,
             right: 16,
@@ -83,12 +86,11 @@ class LocationSliverAppBar extends StatelessWidget {
             ],
           ),
         ),
-        centerTitle: true,
-        titlePadding: const EdgeInsets.all(0),
-        title: const Align(
-          alignment: Alignment.bottomCenter,
-          child: ElevatedSearchField(),
-        ),
+      ),
+      collapsedHeight: kToolbarHeight + MediaQuery.of(context).padding.top,
+      bottom: const PreferredSize(
+        preferredSize: Size.fromHeight(0),
+        child: ElevatedSearchField(),
       ),
       pinned: true,
     );
