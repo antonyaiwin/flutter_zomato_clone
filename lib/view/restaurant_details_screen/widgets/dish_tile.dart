@@ -41,6 +41,7 @@ class DishTile extends StatelessWidget {
                   child: DishDetailsColumn(
                     dishItem: dishItem,
                     showPrice: true,
+                    dense: true,
                   ),
                 ),
                 const SizedBox(width: 10),

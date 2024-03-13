@@ -11,10 +11,12 @@ class DishDetailsColumn extends StatelessWidget {
     super.key,
     required this.dishItem,
     required this.showPrice,
+    this.dense = false,
   });
 
   final DishItemModel dishItem;
   final bool showPrice;
+  final bool dense;
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +68,8 @@ class DishDetailsColumn extends StatelessWidget {
         ],
         Text(
           dishItem.dishDescription,
-          maxLines: 6,
-          overflow: TextOverflow.ellipsis,
+          maxLines: dense ? 4 : null,
+          overflow: dense ? TextOverflow.ellipsis : TextOverflow.visible,
           style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w100,
