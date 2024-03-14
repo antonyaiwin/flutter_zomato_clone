@@ -44,6 +44,7 @@ dependencies:
   visibility_detector: ^0.4.0+2
   dotted_dashed_line: ^0.0.3
   flutter_rating_stars: ^1.0.3+4
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:

@@ -97,7 +97,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
             if (invalidOtp)
               const Text(
                 'The OTP entered is invalid/incorrect. Please try again',
-                style: TextStyle(color: ColorConstants.primaryColorDark),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: ColorConstants.primaryColorDark,
+                ),
               ),
             AnimatedOpacity(
               opacity: messageOpacity,

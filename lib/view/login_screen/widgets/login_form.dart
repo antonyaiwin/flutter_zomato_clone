@@ -1,7 +1,9 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../../../common/widgets/spacer.dart';
+import '../../../utils/functions/custom_functions.dart';
 import '../../verification_screen/verification_screen.dart';
 
 class LoginForm extends StatelessWidget {
@@ -100,12 +102,6 @@ class LoginForm extends StatelessWidget {
                       hintText: 'Enter Phone Number',
                       hintStyle: const TextStyle(color: Colors.grey),
                     ),
-                    validator: (value) {
-                      if (value!.length < 8) {
-                        return 'Please enter a valid phone number!';
-                      }
-                      return null;
-                    },
                     onTapOutside: (event) {
                       FocusScope.of(context).unfocus();
                     },
@@ -122,16 +118,33 @@ class LoginForm extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => VerificationScreen(
-                          phoneNumber:
-                              '$selectedCountryCode-${phoneNumberController.text}',
-                        ),
+                  if (phoneNumberController.text.length < 8) {
+                    Fluttertoast.showToast(
+                      msg: 'Please enter a valid phone number!',
+                      gravity: ToastGravity.BOTTOM,
+                    );
+                  } else {
+                    showMyDialog(
+                      context: context,
+                      content: Row(
+                        children: [
+                          const CircularProgressIndicator(),
+                          kHSpace(20),
+                          const Text('Sending OTP')
+                        ],
                       ),
                     );
+                    Future.delayed(const Duration(seconds: 2)).then((value) {
+                      return Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => VerificationScreen(
+                            phoneNumber:
+                                '$selectedCountryCode-${phoneNumberController.text}',
+                          ),
+                        ),
+                      );
+                    });
                   }
                 },
                 style: const ButtonStyle(
