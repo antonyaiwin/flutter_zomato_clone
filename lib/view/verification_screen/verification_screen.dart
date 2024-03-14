@@ -167,7 +167,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const PersonalDetailsScreen(),
+              builder: (context) => PersonalDetailsScreen(
+                phoneNumber: widget.phoneNumber,
+              ),
             ));
       } else {
         setState(() {

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/custom_button.dart';
 import 'package:flutter_zomato_clone/common/widgets/diet_icon.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
+import 'package:flutter_zomato_clone/model/user/user_model.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
+import 'package:flutter_zomato_clone/utils/functions/shared_preferences_utils.dart';
 import 'package:flutter_zomato_clone/view/home_screen/home_screen.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -10,8 +12,8 @@ import '../../utils/functions/custom_functions.dart';
 import 'widgets/yes_no_radio_button.dart';
 
 class PersonalDetailsScreen extends StatefulWidget {
-  const PersonalDetailsScreen({super.key});
-
+  const PersonalDetailsScreen({super.key, required this.phoneNumber});
+  final String phoneNumber;
   @override
   State<PersonalDetailsScreen> createState() => _PersonalDetailsScreenState();
 }
@@ -141,12 +143,20 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
     );
 
     Future.delayed(const Duration(seconds: 3)).then(
-      (value) => Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
-          ),
-          (route) => false),
+      (value) async {
+        await SharedPreferencesUtils.saveLoginCredentials(
+          UserModel(
+              name: nameController.text,
+              phoneNo: widget.phoneNumber,
+              isVegetarian: isVegetarian!),
+        );
+        return Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomeScreen(),
+            ),
+            (route) => false);
+      },
     );
   }
 }

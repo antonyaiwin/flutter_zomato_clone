@@ -2,12 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../../../common/widgets/spacer.dart';
+import '../../../../model/user/user_model.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/functions/shared_preferences_utils.dart';
 import '../elevated_search_field.dart';
 
-class LocationSliverAppBar extends StatelessWidget {
+class LocationSliverAppBar extends StatefulWidget {
   const LocationSliverAppBar({super.key});
+
+  @override
+  State<LocationSliverAppBar> createState() => _LocationSliverAppBarState();
+}
+
+class _LocationSliverAppBarState extends State<LocationSliverAppBar> {
   final double elevatedSearchFieldHeight = 55;
+  UserModel? user;
+
+  @override
+  void initState() {
+    getLoginedUser();
+    super.initState();
+  }
+
+  void getLoginedUser() async {
+    user = await SharedPreferencesUtils.getLoginedUser();
+    if (user != null) {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -75,14 +98,19 @@ class LocationSliverAppBar extends StatelessWidget {
                 ),
               ),
               kHSpace(10),
-              CircleAvatar(
-                radius: 18,
-                backgroundColor: ColorConstants.blue.withOpacity(0.5),
-                child: const Text(
-                  'E',
-                  style: TextStyle(fontSize: 23),
-                ),
-              ),
+              user == null
+                  ? const Icon(
+                      Icons.menu,
+                      color: ColorConstants.primaryBlack,
+                    )
+                  : CircleAvatar(
+                      radius: 18,
+                      backgroundColor: ColorConstants.blue.withOpacity(0.5),
+                      child: Text(
+                        user!.name.characters.first,
+                        style: const TextStyle(fontSize: 23),
+                      ),
+                    ),
             ],
           ),
         ),
