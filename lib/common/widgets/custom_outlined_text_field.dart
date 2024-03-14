@@ -32,6 +32,7 @@ class _CustomOutlinedTextFieldState extends State<CustomOutlinedTextField> {
   @override
   void initState() {
     if (widget.controller != null) {
+      showClear = widget.controller!.text.isNotEmpty;
       widget.controller!.addListener(textListener);
     }
     super.initState();
@@ -52,31 +53,36 @@ class _CustomOutlinedTextFieldState extends State<CustomOutlinedTextField> {
       child: TextField(
         controller: widget.controller,
         cursorWidth: 0.5,
-        cursorColor: ColorConstants.black3c,
+        cursorColor: const Color.fromRGBO(60, 60, 67, 1),
         decoration: InputDecoration(
-            prefixIcon: widget.showPrefix
-                ? const Icon(
-                    EvaIcons.search,
-                    color: ColorConstants.primaryColor,
-                  )
-                : null,
-            suffixIcon: !showClear
-                ? null
-                : GestureDetector(
-                    onTap: () {
-                      widget.controller?.clear();
-                    },
-                    child: const Icon(
-                      Icons.close_rounded,
-                      color: ColorConstants.black3c,
-                      size: 20,
-                    )),
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            border: inputBorder,
-            enabledBorder: inputBorder,
-            focusedBorder: inputBorder,
-            hintText: widget.hintText),
+          filled: true,
+          fillColor: ColorConstants.primaryWhite,
+          prefixIcon: widget.showPrefix
+              ? const Icon(
+                  EvaIcons.search,
+                  color: ColorConstants.primaryColor,
+                )
+              : null,
+          suffixIcon: !showClear
+              ? null
+              : GestureDetector(
+                  onTap: () {
+                    widget.controller?.clear();
+                  },
+                  child: const Icon(
+                    Icons.close_rounded,
+                    color: ColorConstants.black3c,
+                    size: 20,
+                  ),
+                ),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          border: inputBorder,
+          enabledBorder: inputBorder,
+          focusedBorder: inputBorder,
+          hintText: widget.hintText,
+        ),
+        onTapOutside: (event) => FocusScope.of(context).unfocus(),
       ),
     );
   }

@@ -14,12 +14,13 @@ Future<T?> showMyModalBottomSheet<T>({
   double maxChildSize = /* 1.0 */ 0.75,
   bool expand = true,
   bool snap = /* false */ true,
+  bool isScrollControlled = true,
 }) {
   return showModalBottomSheet(
     context: context,
     elevation: 0,
     backgroundColor: Colors.transparent,
-    isScrollControlled: true,
+    isScrollControlled: isScrollControlled,
     builder: (context) {
       return GestureDetector(
         behavior: HitTestBehavior.opaque,

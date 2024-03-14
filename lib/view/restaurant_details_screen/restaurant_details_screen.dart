@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
@@ -14,6 +14,7 @@ import 'widgets/dish_menu_button.dart';
 import 'widgets/dish_menu_popup_widget.dart';
 import 'widgets/dish_tile.dart';
 import 'widgets/restaurant_details_header.dart';
+import 'widgets/restaurant_info_bottom_sheet.dart';
 
 class RestaurantDetailsScreen extends StatefulWidget {
   const RestaurantDetailsScreen({super.key, required this.item});
@@ -35,7 +36,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   double dividerHeight = 15;
 
   late TextEditingController searchController;
-  bool showSearch = false;
+  bool showSearch = false, searchClicked = false;
 
   BuildContext? tabContext;
 
@@ -61,7 +62,11 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
     double offset = _scrollController.offset;
 
     // logic to show or hide action and serch bar
-    if (showSearch && offset <= 232) {
+    if (searchClicked && offset == 0) {
+      setState(() {
+        searchClicked = false;
+      });
+    } else if (showSearch && offset <= 232) {
       setState(() {
         showSearch = false;
       });
@@ -265,7 +270,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   }
 
   Widget getAppBarTitle() {
-    if (showSearch) {
+    if (showSearch || searchClicked) {
       return CustomOutlinedTextField(
         controller: searchController,
         hintText: 'Search in ${widget.item.name}',
@@ -274,9 +279,16 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const Icon(
-          Bootstrap.search,
-          size: 20,
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              searchClicked = true;
+            });
+          },
+          child: const Icon(
+            Bootstrap.search,
+            size: 20,
+          ),
         ),
         kHSpace(15),
         const Icon(
@@ -288,10 +300,17 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
           MingCute.share_forward_line,
         ),
         kHSpace(10),
-        const Icon(
-          Icons.more_vert,
+        GestureDetector(
+          onTap: () => showMyModalBottomSheet(
+            isScrollControlled: false,
+            context: context,
+            builder: (context, scrollController) =>
+                RestaurantInfoBottomSheet(restaurantName: widget.item.name),
+          ),
+          child: const Icon(
+            Icons.more_vert,
+          ),
         ),
-        kHSpace(20),
       ],
     );
   }
