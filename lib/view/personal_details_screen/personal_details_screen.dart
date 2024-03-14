@@ -6,6 +6,7 @@ import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/home_screen/home_screen.dart';
 import 'package:icons_plus/icons_plus.dart';
 
+import '../../utils/functions/custom_functions.dart';
 import 'widgets/yes_no_radio_button.dart';
 
 class PersonalDetailsScreen extends StatefulWidget {
@@ -128,22 +129,14 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
   }
 
   void verifyDetails() {
-    showDialog(
+    showMyDialog(
       context: context,
-      barrierDismissible: false,
-      builder: (context) => AlertDialog.adaptive(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: ColorConstants.primaryWhite,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-        content: Row(
-          children: [
-            const CircularProgressIndicator(),
-            kHSpace(20),
-            const Text('Verifying credentials..')
-          ],
-        ),
+      content: Row(
+        children: [
+          const CircularProgressIndicator(),
+          kHSpace(20),
+          const Text('Verifying credentials..')
+        ],
       ),
     );
 

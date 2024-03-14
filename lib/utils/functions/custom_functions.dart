@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-void showMyModalBottomSheet({
+import '../constants/colors.dart';
+
+Future<T?> showMyModalBottomSheet<T>({
   required BuildContext context,
   double? height,
   EdgeInsetsGeometry? contentPadding,
@@ -13,7 +15,7 @@ void showMyModalBottomSheet({
   bool expand = true,
   bool snap = /* false */ true,
 }) {
-  showModalBottomSheet(
+  return showModalBottomSheet(
     context: context,
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -64,5 +66,22 @@ void showMyModalBottomSheet({
         ),
       );
     },
+  );
+}
+
+Future<T?> showMyDialog<T>({
+  required BuildContext context,
+  Widget? content,
+}) {
+  return showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (context) => AlertDialog.adaptive(
+      contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
+      surfaceTintColor: Colors.transparent,
+      backgroundColor: ColorConstants.primaryWhite,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+      content: content,
+    ),
   );
 }
