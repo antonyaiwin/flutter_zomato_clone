@@ -8,6 +8,7 @@ import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/restaurant_chips.dart';
 
+import '../../common/widgets/custom_outlined_text_field.dart';
 import '../../model/restaurant/restaurant_model.dart';
 import 'widgets/dish_menu_button.dart';
 import 'widgets/dish_menu_popup_widget.dart';
@@ -33,24 +34,49 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   double dashedLineHeight = 1;
   double dividerHeight = 15;
 
+  late TextEditingController searchController;
+  bool showSearch = false;
+
   BuildContext? tabContext;
 
   @override
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(scrollListener);
+    _scrollController.addListener(scrollListenerForSearchField);
+    searchController = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
+    _scrollController.removeListener(scrollListener);
+    _scrollController.removeListener(scrollListenerForSearchField);
     _scrollController.dispose();
     super.dispose();
   }
 
-// ScrollController Listener
+  // ScrollController Listener for searchField and actions
+  void scrollListenerForSearchField() {
+    double offset = _scrollController.offset;
+
+    // logic to show or hide action and serch bar
+    if (showSearch && offset <= 232) {
+      setState(() {
+        showSearch = false;
+      });
+    } else if (!showSearch && offset > 232) {
+      setState(() {
+        showSearch = true;
+      });
+    }
+  }
+
+  // ScrollController Listener for scrolling listview and tabbar
   void scrollListener() {
     double offset = _scrollController.offset;
+
+    // logic to scroll tab bar index
     double childPosition = 0;
     for (var i = 0; i <= DummyDb.recipeCategoryModelList.length; i++) {
       int num = DummyDb.recipeCategoryModelList[i].dishList.length;
@@ -100,6 +126,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
     return DefaultTabController(
       length: DummyDb.recipeCategoryModelList.length,
       child: Scaffold(
+        backgroundColor: ColorConstants.scaffoldBackgroundColor,
         body: CustomScrollView(
           controller: _scrollController,
           slivers: [
@@ -107,26 +134,10 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
               surfaceTintColor: Colors.transparent,
               pinned: true,
               expandedHeight: 340,
-              actions: [
-                const Icon(
-                  Bootstrap.search,
-                  size: 20,
-                ),
-                kHSpace(15),
-                const Icon(
-                  Bootstrap.heart,
-                  size: 20,
-                ),
-                kHSpace(15),
-                const Icon(
-                  MingCute.share_forward_line,
-                ),
-                kHSpace(10),
-                const Icon(
-                  Icons.more_vert,
-                ),
-                kHSpace(20),
-              ],
+              title: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 500),
+                child: getAppBarTitle(),
+              ),
               flexibleSpace: FlexibleSpaceBar(
                 collapseMode: CollapseMode.pin,
                 background: RestaurantDetailsHeader(item: widget.item),
@@ -134,7 +145,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                 titlePadding: const EdgeInsets.symmetric(vertical: 5),
                 expandedTitleScale: 1,
               ),
-              collapsedHeight: kToolbarHeight + 50,
+              collapsedHeight: kToolbarHeight + 52,
               bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(0),
                   child: Padding(
@@ -250,6 +261,38 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
           );
         }),
       ),
+    );
+  }
+
+  Widget getAppBarTitle() {
+    if (showSearch) {
+      return CustomOutlinedTextField(
+        controller: searchController,
+        hintText: 'Search in ${widget.item.name}',
+      );
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        const Icon(
+          Bootstrap.search,
+          size: 20,
+        ),
+        kHSpace(15),
+        const Icon(
+          Bootstrap.heart,
+          size: 20,
+        ),
+        kHSpace(15),
+        const Icon(
+          MingCute.share_forward_line,
+        ),
+        kHSpace(10),
+        const Icon(
+          Icons.more_vert,
+        ),
+        kHSpace(20),
+      ],
     );
   }
 }

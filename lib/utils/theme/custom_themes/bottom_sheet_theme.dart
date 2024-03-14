@@ -7,7 +7,8 @@ class TBottomSheetTheme {
       BottomSheetThemeData();
 
   static BottomSheetThemeData lightTextTheme = _baseBottomSheetTheme.copyWith(
-    backgroundColor: const Color.fromRGBO(245, 246, 251, 1),
+    backgroundColor: ColorConstants
+        .scaffoldBackgroundColor /* const Color.fromRGBO(245, 246, 251, 1) */,
   );
 
   static BottomSheetThemeData darkTextTheme = _baseBottomSheetTheme.copyWith(

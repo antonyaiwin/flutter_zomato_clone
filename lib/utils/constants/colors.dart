@@ -18,4 +18,5 @@ abstract class ColorConstants {
   static const Color ratingBgGreen = Color.fromRGBO(56, 142, 60, 1);
   static const Color ratingBgAmber = Color.fromRGBO(234, 176, 1, 1);
   static const Color ratingBgRed = Color.fromRGBO(211, 47, 47, 1);
+  static const Color scaffoldBackgroundColor = Color.fromRGBO(245, 246, 251, 1);
 }
