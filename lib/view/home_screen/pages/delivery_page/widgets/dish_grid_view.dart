@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/widgets/spacer.dart';
-import '../../../data/dummy_data/dummy_db.dart';
-import '../../../utils/constants/colors.dart';
+import '../../../../../common/widgets/spacer.dart';
+import '../../../../../data/dummy_data/dummy_db.dart';
+import '../../../../../utils/constants/colors.dart';
 
 class DishGridView extends StatelessWidget {
   const DishGridView({

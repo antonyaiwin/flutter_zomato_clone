@@ -27,10 +27,6 @@ class TimeDistanceWidget extends StatelessWidget {
         Text.rich(
           TextSpan(
             text: timeInMinutes,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: foregroundColor ??
-                      ColorConstants.black3c.withOpacity(0.5),
-                ),
             children: [
               TextSpan(
                   text: ' • ',

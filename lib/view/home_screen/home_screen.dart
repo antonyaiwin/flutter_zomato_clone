@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
-import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
-import 'package:flutter_zomato_clone/utils/constants/colors.dart';
-import 'package:flutter_zomato_clone/view/home_screen/widgets/slivers/location_sliver_app_bar.dart';
-import 'package:flutter_zomato_clone/view/login_screen/widgets/labeled_divider.dart';
+import 'package:flutter_zomato_clone/view/home_screen/pages/delivery_page/delivery_page.dart';
+import 'package:flutter_zomato_clone/view/home_screen/pages/dining_page/dining_page.dart';
 
-import 'widgets/dish_grid_view.dart';
-import '../../common/widgets/restaurant_card.dart';
-import 'widgets/slivers/main_chips_sliver_app_bar.dart';
+import 'widgets/home_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,42 +12,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<GlobalKey> listItemKeyList = List.generate(
-      DummyDb.restaurants.length,
-      (index) => GlobalKey(debugLabel: index.toString()));
+  int selectedPageIndex = 0;
+  final PageController _pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (context, innerBoxIsScrolled) => [
-          const LocationSliverAppBar(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                kVSpace(10),
-                const LabeledDivider(label: 'WHAT\'S ON YOUR MIND?'),
-                kVSpace(20),
-                const DishGridView(),
-                kVSpace(20),
-                const LabeledDivider(label: 'ALL RESTAURANTS'),
-                kVSpace(20),
-              ],
-            ),
-          ),
-          const MainChipsSliverAppBar(),
+      body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: _pageController,
+        children: const [
+          DeliveryPage(),
+          DiningPage(),
         ],
-        body: ListView.separated(
-          padding: const EdgeInsets.all(15),
-          itemBuilder: (context, index) {
-            var item = DummyDb.restaurants[index];
-            return RestaurantCard(itemKey: listItemKeyList[index], item: item);
-          },
-          separatorBuilder: (context, index) {
-            return kVSpace(20);
-          },
-          itemCount: DummyDb.restaurants.length,
-        ),
+      ),
+      bottomNavigationBar: HomeBottomNavigationBar(
+        selectedIndex: selectedPageIndex,
+        onTap: (index) {
+          if (selectedPageIndex != index) {
+            _pageController.jumpToPage(index);
+            setState(() {
+              selectedPageIndex = index;
+            });
+          }
+        },
       ),
     );
   }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-import '../../../common/widgets/spacer.dart';
-import '../../../utils/constants/colors.dart';
-import '../../../common/widgets/elevated_card.dart';
+import '../../../../../common/widgets/spacer.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../common/widgets/elevated_card.dart';
 
-class MainChips extends StatelessWidget {
-  const MainChips({
+class DiningChips extends StatelessWidget {
+  const DiningChips({
     super.key,
   });
 
@@ -28,7 +28,7 @@ class MainChips extends StatelessWidget {
                   size: 16,
                 ),
                 kHSpace(2),
-                const Text('Sort'),
+                const Text('Filters'),
                 const Icon(
                   EvaIcons.arrow_down,
                   color: ColorConstants.primaryBlack,
@@ -43,6 +43,14 @@ class MainChips extends StatelessWidget {
           ),
           kHSpace(10),
           const ElevatedCard(
+            child: Text('Book Table'),
+          ),
+          kHSpace(10),
+          const ElevatedCard(
+            child: Text('Limited Slots'),
+          ),
+          kHSpace(10),
+          const ElevatedCard(
             child: Text('Rating 4.0+'),
           ),
           kHSpace(10),
@@ -53,7 +61,7 @@ class MainChips extends StatelessWidget {
           const ElevatedCard(
             child: Row(
               children: [
-                Text('Cuisines'),
+                Text('Rating'),
                 Icon(
                   EvaIcons.arrow_down,
                   color: ColorConstants.primaryBlack,

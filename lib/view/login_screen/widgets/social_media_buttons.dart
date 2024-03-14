@@ -34,7 +34,7 @@ class SocialMediaLoginButtons extends StatelessWidget {
         InkWell(
           borderRadius: BorderRadius.circular(40),
           onTap: () {
-            print('show sheet');
+            // print('show sheet');
             showMyModalBottomSheet(
               context: context,
               height: 210,
