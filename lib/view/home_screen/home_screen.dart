@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/utils/functions/shared_preferences_utils.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/delivery_page/delivery_page.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/dining_page/dining_page.dart';
 
-import '../../model/user/user_model.dart';
 import 'widgets/home_bottom_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {

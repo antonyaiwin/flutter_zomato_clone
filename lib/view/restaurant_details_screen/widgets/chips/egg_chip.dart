@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common/widgets/elevated_card.dart';
+import '../../../../common/widgets/outlined_card.dart';
 
 class EggChip extends StatelessWidget {
   const EggChip({
@@ -12,7 +12,7 @@ class EggChip extends StatelessWidget {
   final bool isSelected;
   @override
   Widget build(BuildContext context) {
-    return ElevatedCard(
+    return OutlinedCard(
       onTap: onTap,
       isSelected: isSelected,
       child: const Row(

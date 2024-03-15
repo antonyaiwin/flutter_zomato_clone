@@ -3,8 +3,8 @@ import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 
 import '../../utils/constants/colors.dart';
 
-class ElevatedCard extends StatelessWidget {
-  const ElevatedCard({
+class OutlinedCard extends StatelessWidget {
+  const OutlinedCard({
     super.key,
     this.child,
     this.onTap,

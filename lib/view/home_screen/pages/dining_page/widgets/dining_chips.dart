@@ -3,7 +3,7 @@ import 'package:icons_plus/icons_plus.dart';
 
 import '../../../../../common/widgets/spacer.dart';
 import '../../../../../utils/constants/colors.dart';
-import '../../../../../common/widgets/elevated_card.dart';
+import '../../../../../common/widgets/outlined_card.dart';
 
 class DiningChips extends StatelessWidget {
   const DiningChips({
@@ -19,7 +19,7 @@ class DiningChips extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ElevatedCard(
+          OutlinedCard(
             child: Row(
               children: [
                 const Icon(
@@ -38,27 +38,27 @@ class DiningChips extends StatelessWidget {
             ),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Text('Nearest'),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Text('Book Table'),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Text('Limited Slots'),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Text('Rating 4.0+'),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Text('Pure Veg'),
           ),
           kHSpace(10),
-          const ElevatedCard(
+          const OutlinedCard(
             child: Row(
               children: [
                 Text('Rating'),

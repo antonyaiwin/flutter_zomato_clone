@@ -8,7 +8,7 @@ import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/chip
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/chips/veg_chip.dart';
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/filter_options_card.dart';
 
-import '../../../common/widgets/elevated_card.dart';
+import '../../../common/widgets/outlined_card.dart';
 import '../restaurant_details_screen.dart';
 
 class DishFilterBottomSheet extends StatefulWidget {
@@ -126,7 +126,7 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
                       spacing: 20,
                       runSpacing: 15,
                       children: [
-                        ElevatedCard(
+                        OutlinedCard(
                           isSelected: sortType == DishSortType.priceLowToHigh,
                           onTap: () {
                             if (sortType == DishSortType.priceLowToHigh) {
@@ -139,7 +139,7 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
                           },
                           child: const Text('Price - low to high'),
                         ),
-                        ElevatedCard(
+                        OutlinedCard(
                           isSelected: sortType == DishSortType.priceHighToLow,
                           onTap: () {
                             if (sortType == DishSortType.priceHighToLow) {
@@ -151,7 +151,7 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
                           },
                           child: const Text('Price - high to low'),
                         ),
-                        ElevatedCard(
+                        OutlinedCard(
                           isSelected: sortType == DishSortType.ratingHighToLow,
                           onTap: () {
                             if (sortType == DishSortType.ratingHighToLow) {
