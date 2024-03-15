@@ -19,4 +19,11 @@ abstract class ColorConstants {
   static const Color ratingBgAmber = Color.fromRGBO(234, 176, 1, 1);
   static const Color ratingBgRed = Color.fromRGBO(211, 47, 47, 1);
   static const Color scaffoldBackgroundColor = Color.fromRGBO(245, 246, 251, 1);
+
+  static const Color goldShade1 = Color(0xffffdc02);
+  static const Color goldShade2 = Color(0xfff8ce19);
+  static const Color goldShade3 = Color(0xfff8bf33);
+  static const Color goldShade4 = Color(0xfff4ae00);
+  static const Color goldShade5 = Color(0xffe99c05);
+  static const Color goldShade6 = Color(0xffb48811);
 }

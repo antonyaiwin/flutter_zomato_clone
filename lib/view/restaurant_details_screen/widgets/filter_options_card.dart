@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/common/widgets/elevated_card.dart';
 
 import '../../../common/widgets/spacer.dart';
-import '../../../utils/constants/colors.dart';
 
 class FilterOptionsCard extends StatelessWidget {
   const FilterOptionsCard({
@@ -14,13 +14,7 @@ class FilterOptionsCard extends StatelessWidget {
   final List<Widget>? children;
   @override
   Widget build(BuildContext context) {
-    return Ink(
-      padding: const EdgeInsets.all(15),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: ColorConstants.primaryWhite,
-        borderRadius: BorderRadius.circular(15),
-      ),
+    return ElevatedCard(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
