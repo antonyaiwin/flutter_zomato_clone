@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/view/settings_screen/settings_screen.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../../../common/widgets/spacer.dart';
+import '../../../../common/widgets/user_circle_avatar.dart';
 import '../../../../model/user/user_model.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/functions/shared_preferences_utils.dart';
@@ -98,19 +100,20 @@ class _LocationSliverAppBarState extends State<LocationSliverAppBar> {
                 ),
               ),
               kHSpace(10),
-              user == null
-                  ? const Icon(
-                      Icons.menu,
-                      color: ColorConstants.primaryBlack,
-                    )
-                  : CircleAvatar(
-                      radius: 18,
-                      backgroundColor: ColorConstants.blue.withOpacity(0.5),
-                      child: Text(
-                        user!.name.characters.first,
-                        style: const TextStyle(fontSize: 23),
-                      ),
-                    ),
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                ),
+                child: user == null
+                    ? const Icon(
+                        Icons.menu,
+                        color: ColorConstants.primaryBlack,
+                      )
+                    : UserCircleAvatar(userName: user!.name),
+              ),
             ],
           ),
         ),

@@ -8,7 +8,11 @@ import 'widgets/login_form.dart';
 import 'widgets/login_header.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({
+    super.key,
+    this.popOnSkip = false,
+  });
+  final bool popOnSkip;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -25,7 +29,9 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const LoginHeader(),
+            LoginHeader(
+              popOnSkip: widget.popOnSkip,
+            ),
             kVSpace(15),
             const Text(
               'India\'s #1 Food Delivery \nand Dining App',

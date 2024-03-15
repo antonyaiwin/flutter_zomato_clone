@@ -4,8 +4,8 @@ import '../../../../../utils/constants/image_strings.dart';
 import 'glass_container.dart';
 
 class LoginHeader extends StatelessWidget {
-  const LoginHeader({super.key});
-
+  const LoginHeader({super.key, required this.popOnSkip});
+  final bool popOnSkip;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -39,6 +39,10 @@ class LoginHeader extends StatelessWidget {
           width: 60,
           child: GlassContainer(
             onTap: () {
+              if (popOnSkip) {
+                Navigator.pop(context);
+                return;
+              }
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(

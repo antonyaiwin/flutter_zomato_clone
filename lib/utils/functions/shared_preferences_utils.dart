@@ -34,4 +34,18 @@ abstract class SharedPreferencesUtils {
     }
     return null;
   }
+
+  static Future<bool> removeUserCredentials() async {
+    // Obtain shared preferences.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    try {
+      await prefs.remove(_userNameKey);
+      await prefs.remove(_userEmailKey);
+      await prefs.remove(_userPhoneNoKey);
+      await prefs.remove(_userIsVegetarianKey);
+      return true;
+    } on Exception {
+      return false;
+    }
+  }
 }
