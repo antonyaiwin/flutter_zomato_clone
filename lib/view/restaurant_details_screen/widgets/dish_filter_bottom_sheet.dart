@@ -9,16 +9,18 @@ import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/chip
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/filter_options_card.dart';
 
 import '../../../common/widgets/outlined_card.dart';
-import '../restaurant_details_screen.dart';
+import '../../../controller/home/restaurant_details_controller.dart';
 
 class DishFilterBottomSheet extends StatefulWidget {
   const DishFilterBottomSheet({
     super.key,
     required this.controller,
     required this.onChipToggled,
+    required this.restaurantDetailsController,
   });
 
   final ScrollController controller;
+  final RestaurantDetailsController restaurantDetailsController;
   final void Function() onChipToggled;
   @override
   State<DishFilterBottomSheet> createState() => _DishFilterBottomSheetState();
@@ -31,13 +33,15 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
   late bool topRated;
   late DishSortType sortType;
 
+  DishFilter get dishFilter => widget.restaurantDetailsController.dishFilter;
+
   @override
   void initState() {
-    veg = RestaurantDetailsScreen.dishFilter.veg;
-    nonVeg = RestaurantDetailsScreen.dishFilter.nonVeg;
-    egg = RestaurantDetailsScreen.dishFilter.egg;
-    topRated = RestaurantDetailsScreen.dishFilter.topRated;
-    sortType = RestaurantDetailsScreen.dishFilter.sortType;
+    veg = dishFilter.veg;
+    nonVeg = dishFilter.nonVeg;
+    egg = dishFilter.egg;
+    topRated = dishFilter.topRated;
+    sortType = dishFilter.sortType;
     super.initState();
   }
 
@@ -182,7 +186,7 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
                 child: CustomButton.text(
                   padding: EdgeInsets.zero,
                   onTap: () {
-                    RestaurantDetailsScreen.dishFilter.clearAll();
+                    dishFilter.clearAll();
                     widget.onChipToggled();
                     Navigator.pop(context);
                   },
@@ -200,11 +204,11 @@ class _DishFilterBottomSheetState extends State<DishFilterBottomSheet> {
                 child: CustomButton(
                   padding: EdgeInsets.zero,
                   onTap: () {
-                    RestaurantDetailsScreen.dishFilter.veg = veg;
-                    RestaurantDetailsScreen.dishFilter.nonVeg = nonVeg;
-                    RestaurantDetailsScreen.dishFilter.egg = egg;
-                    RestaurantDetailsScreen.dishFilter.topRated = topRated;
-                    RestaurantDetailsScreen.dishFilter.sortType = sortType;
+                    dishFilter.veg = veg;
+                    dishFilter.nonVeg = nonVeg;
+                    dishFilter.egg = egg;
+                    dishFilter.topRated = topRated;
+                    dishFilter.sortType = sortType;
                     widget.onChipToggled();
                     Navigator.pop(context);
                   },

@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/controller/home/delivery_controller.dart';
 
 import '../../../../../common/widgets/spacer.dart';
-import '../../../../../data/dummy_data/dummy_db.dart';
+import '../../../../../model/data_model/grid_item_data_model.dart';
 import '../../../../../utils/constants/colors.dart';
 
-class DishGridView extends StatelessWidget {
+class DishGridView extends StatefulWidget {
   const DishGridView({
     super.key,
+    required this.controller,
   });
+  final DeliveryController controller;
+
+  @override
+  State<DishGridView> createState() => _DishGridViewState();
+}
+
+class _DishGridViewState extends State<DishGridView> {
+  late List<GridItemDataModel> dishGridItemModelList;
+
+  @override
+  void initState() {
+    dishGridItemModelList = DeliveryController().getGridItems();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +39,9 @@ class DishGridView extends StatelessWidget {
           mainAxisSpacing: 1,
           crossAxisSpacing: 20,
         ),
-        itemCount: DummyDb.dishList.length,
+        itemCount: dishGridItemModelList.length,
         itemBuilder: (context, index) {
-          var item = DummyDb.dishList[index];
+          var item = dishGridItemModelList[index];
           return Column(
             children: [
               CircleAvatar(

@@ -2,11 +2,11 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import '../../../common/widgets/custom_page_indicator.dart';
-import '../../../data/dummy_data/dummy_db.dart';
 
 class OfferCarousel extends StatefulWidget {
   const OfferCarousel({super.key});
@@ -34,9 +34,9 @@ class _OfferCarouselState extends State<OfferCarousel> {
           child: Column(
             children: [
               CarouselSlider.builder(
-                itemCount: DummyDb.offersMap.length,
+                itemCount: RestaurantDetailsController.offersMap.length,
                 itemBuilder: (BuildContext context, int index, int realIndex) {
-                  Map offer = DummyDb.offersMap[index];
+                  Map offer = RestaurantDetailsController.offersMap[index];
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -66,7 +66,8 @@ class _OfferCarouselState extends State<OfferCarousel> {
                 ),
               ),
               CustomPageIndicator(
-                  count: DummyDb.offersMap.length, pageIndex: pageIndex),
+                  count: RestaurantDetailsController.offersMap.length,
+                  pageIndex: pageIndex),
               const SizedBox(height: 10),
             ],
           ),

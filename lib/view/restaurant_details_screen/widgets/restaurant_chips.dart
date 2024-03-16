@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/restaurant_details_screen.dart';
 
 import '../../../utils/functions/custom_functions.dart';
@@ -14,8 +15,10 @@ class RestaurantChips extends StatelessWidget {
   const RestaurantChips({
     super.key,
     required this.onChipToggled,
+    required this.restaurantDetailsController,
   });
   final void Function() onChipToggled;
+  final RestaurantDetailsController restaurantDetailsController;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -33,41 +36,42 @@ class RestaurantChips extends StatelessWidget {
                   return DishFilterBottomSheet(
                     controller: scrollController,
                     onChipToggled: onChipToggled,
+                    restaurantDetailsController: restaurantDetailsController,
                   );
                 },
               );
             },
-            isSelected: RestaurantDetailsScreen.dishFilter.filtered,
+            isSelected: restaurantDetailsController.dishFilter.filtered,
           ),
           kHSpace(10),
           VegChip(
-            isSelected: RestaurantDetailsScreen.dishFilter.veg,
+            isSelected: restaurantDetailsController.dishFilter.veg,
             onTap: () {
-              RestaurantDetailsScreen.dishFilter.toggleVeg();
+              restaurantDetailsController.dishFilter.toggleVeg();
               onChipToggled();
             },
           ),
           kHSpace(10),
           NonVegChip(
-            isSelected: RestaurantDetailsScreen.dishFilter.nonVeg,
+            isSelected: restaurantDetailsController.dishFilter.nonVeg,
             onTap: () {
-              RestaurantDetailsScreen.dishFilter.toggleNonVeg();
+              restaurantDetailsController.dishFilter.toggleNonVeg();
               onChipToggled();
             },
           ),
           kHSpace(10),
           EggChip(
-            isSelected: RestaurantDetailsScreen.dishFilter.egg,
+            isSelected: restaurantDetailsController.dishFilter.egg,
             onTap: () {
-              RestaurantDetailsScreen.dishFilter.toggleEgg();
+              restaurantDetailsController.dishFilter.toggleEgg();
               onChipToggled();
             },
           ),
           kHSpace(10),
           TopRatedChip(
-            isSelected: RestaurantDetailsScreen.dishFilter.topRated,
+            isSelected: restaurantDetailsController.dishFilter.topRated,
             onTap: () {
-              RestaurantDetailsScreen.dishFilter.toggleTopRated();
+              restaurantDetailsController.dishFilter.toggleTopRated();
               onChipToggled();
             },
           ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
 import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
-import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
 import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/restaurant_chips.dart';
@@ -21,7 +21,6 @@ class RestaurantDetailsScreen extends StatefulWidget {
 
   final RestaurantModel item;
 
-  static DishFilter dishFilter = DishFilter._();
   @override
   State<RestaurantDetailsScreen> createState() =>
       _RestaurantDetailsScreenState();
@@ -29,6 +28,7 @@ class RestaurantDetailsScreen extends StatefulWidget {
 
 class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   late ScrollController _scrollController;
+  late RestaurantDetailsController restaurantDetailsController;
 
   double expansionHeaderHeight = 56;
   double containerHeight = 192;
@@ -40,9 +40,13 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
 
   BuildContext? tabContext;
 
+  List<RecipeCategoryModel> get recipeCategoryModelList =>
+      restaurantDetailsController.recipeCategoryModelList;
+
   @override
   void initState() {
     _scrollController = ScrollController();
+    restaurantDetailsController = RestaurantDetailsController();
     _scrollController.addListener(scrollListener);
     _scrollController.addListener(scrollListenerForSearchField);
     searchController = TextEditingController();
@@ -83,8 +87,8 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
 
     // logic to scroll tab bar index
     double childPosition = 0;
-    for (var i = 0; i <= DummyDb.recipeCategoryModelList.length; i++) {
-      int num = DummyDb.recipeCategoryModelList[i].dishList.length;
+    for (var i = 0; i <= recipeCategoryModelList.length; i++) {
+      int num = recipeCategoryModelList[i].dishList.length;
       childPosition += expansionHeaderHeight +
           containerHeight * num +
           dashedLineHeight * (num - 1) +
@@ -109,7 +113,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
 
     double childPosition = 0;
     for (var i = 0; i < index; i++) {
-      int num = DummyDb.recipeCategoryModelList[i].dishList.length;
+      int num = recipeCategoryModelList[i].dishList.length;
       childPosition += expansionHeaderHeight +
           containerHeight * num +
           dashedLineHeight * (num - 1) +
@@ -129,7 +133,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: DummyDb.recipeCategoryModelList.length,
+      length: recipeCategoryModelList.length,
       child: Scaffold(
         backgroundColor: ColorConstants.scaffoldBackgroundColor,
         body: CustomScrollView(
@@ -156,6 +160,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: RestaurantChips(
+                      restaurantDetailsController: restaurantDetailsController,
                       onChipToggled: () {
                         setState(() {});
                       },
@@ -167,7 +172,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
               sliver: SliverList.separated(
                 itemBuilder: (context, index) {
                   RecipeCategoryModel categoryItem =
-                      DummyDb.recipeCategoryModelList[index];
+                      recipeCategoryModelList[index];
                   return ExpansionTile(
                     iconColor: ColorConstants.primaryBlack,
                     backgroundColor: ColorConstants.primaryWhite,
@@ -200,7 +205,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                 separatorBuilder: (context, index) {
                   return const SizedBox(height: 15);
                 },
-                itemCount: DummyDb.recipeCategoryModelList.length,
+                itemCount: recipeCategoryModelList.length,
               ),
             ),
           ],
@@ -230,10 +235,9 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                           color: ColorConstants.primaryBlack.withOpacity(0.05),
                           borderRadius: BorderRadius.circular(10)),
                       tabs: List.generate(
-                        DummyDb.recipeCategoryModelList.length,
+                        recipeCategoryModelList.length,
                         (index) => Tab(
-                          text: DummyDb
-                              .recipeCategoryModelList[index].categoryTitle,
+                          text: recipeCategoryModelList[index].categoryTitle,
                         ),
                       ),
                       onTap: (int index) => scrollToIndex(index),
@@ -248,6 +252,8 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                         builder: (context) {
                           return DishMenuPopupWidget(
                             tabContext: tabContext!,
+                            restaurantDetailsController:
+                                restaurantDetailsController,
                           );
                         },
                       );
@@ -314,50 +320,4 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
       ],
     );
   }
-}
-
-class DishFilter {
-  bool veg = false;
-  bool nonVeg = false;
-  bool egg = false;
-  bool topRated = false;
-  DishSortType sortType = DishSortType.unknown;
-  DishFilter._();
-
-  bool get filtered => veg || nonVeg || egg || topRated;
-
-  void toggleVeg() {
-    veg = !veg;
-  }
-
-  void toggleNonVeg() {
-    nonVeg = !nonVeg;
-  }
-
-  void toggleEgg() {
-    egg = !egg;
-  }
-
-  void toggleTopRated() {
-    topRated = !topRated;
-  }
-
-  void clearAll() {
-    veg = false;
-    nonVeg = false;
-    egg = false;
-    topRated = false;
-    sortType = DishSortType.unknown;
-  }
-}
-
-enum DishSortType {
-  priceLowToHigh(value: 'price_low_to_high'),
-  priceHighToLow(value: 'price_high_to_low'),
-  ratingHighToLow(value: 'rating_high_to_low'),
-  unknown(value: 'unknown');
-
-  final String value;
-
-  const DishSortType({required this.value});
 }

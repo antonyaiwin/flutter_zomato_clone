@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
 
-import '../../../data/dummy_data/dummy_db.dart';
 import '../../../model/restaurant/recipe_category_model.dart';
 import '../../../utils/constants/colors.dart';
 import 'dish_menu_button.dart';
@@ -9,14 +9,19 @@ class DishMenuPopupWidget extends StatefulWidget {
   const DishMenuPopupWidget({
     super.key,
     required this.tabContext,
+    required this.restaurantDetailsController,
   });
   final BuildContext tabContext;
+  final RestaurantDetailsController restaurantDetailsController;
   @override
   State<DishMenuPopupWidget> createState() => _DishMenuPopupWidgetState();
 }
 
 class _DishMenuPopupWidgetState extends State<DishMenuPopupWidget> {
   bool closed = true;
+
+  List<RecipeCategoryModel> get recipeCategoryModelList =>
+      widget.restaurantDetailsController.recipeCategoryModelList;
   @override
   void initState() {
     Future.delayed(const Duration(milliseconds: 20)).then(
@@ -78,11 +83,10 @@ class _DishMenuPopupWidgetState extends State<DishMenuPopupWidget> {
                               child: ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,
-                                itemCount:
-                                    DummyDb.recipeCategoryModelList.length,
+                                itemCount: recipeCategoryModelList.length,
                                 itemBuilder: (context, index) {
                                   RecipeCategoryModel item =
-                                      DummyDb.recipeCategoryModelList[index];
+                                      recipeCategoryModelList[index];
                                   return InkWell(
                                     onTap: () {
                                       popDialog(index: index);
