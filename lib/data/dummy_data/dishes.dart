@@ -118,19 +118,6 @@ abstract class _Dishes {
     },
     // Beverages
     {
-      'dish_id': 9,
-      'category_ids': [4],
-      'dish_name': 'Pepsi 750ml',
-      'dish_description': 'Pepsi 750ml bottle',
-      'amount': 45.0,
-      'rating': 4.1,
-      'rating_count': 20,
-      'image_url':
-          'https://images.pexels.com/photos/9737410/pexels-photo-9737410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'diet_type': 'veg',
-      "food_type_ids": [9],
-    },
-    {
       'dish_id': 10,
       'category_ids': [4],
       'dish_name': 'Pepsi Max 750ml',

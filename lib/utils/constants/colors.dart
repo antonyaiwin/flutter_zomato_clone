@@ -7,6 +7,7 @@ abstract class ColorConstants {
   static const Color primaryWhite = Color(0xffffffff);
   static const Color primaryBlack = Color(0xff000000);
   static const Color black26 = Color(0xff262626);
+  static const Color primaryBrown = Color.fromARGB(255, 168, 92, 64);
 
   // textField colors
   static const Color textFieldFill = Color(0xffFAFAFA);

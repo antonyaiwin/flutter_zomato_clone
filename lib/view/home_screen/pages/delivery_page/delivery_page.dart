@@ -5,6 +5,7 @@ import '../../../../common/widgets/restaurant_card.dart';
 import '../../../../common/widgets/spacer.dart';
 import '../../../../model/restaurant/restaurant_model.dart';
 import '../../../login_screen/widgets/labeled_divider.dart';
+import '../../../restaurant_details_screen/restaurant_details_screen.dart';
 import 'widgets/delivery_chips.dart';
 import 'widgets/dish_grid_view.dart';
 import '../../widgets/slivers/location_sliver_app_bar.dart';
@@ -57,7 +58,20 @@ class _DeliveryPageState extends State<DeliveryPage>
         padding: const EdgeInsets.all(15),
         itemBuilder: (context, index) {
           var item = restaurantList[index];
-          return RestaurantCard(itemKey: listItemKeyList[index], item: item);
+          return RestaurantCard(
+            itemKey: listItemKeyList[index],
+            item: item,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RestaurantDetailsScreen(
+                    item: item,
+                  ),
+                ),
+              );
+            },
+          );
         },
         separatorBuilder: (context, index) {
           return kVSpace(20);

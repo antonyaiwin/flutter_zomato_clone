@@ -27,10 +27,10 @@ class RestaurantDetailsController {
       recipeCategoryModelList = _getRecipeCategoryModelList();
       // return true;
     } else {
-      tempList = DummyDb.categoryList.map((category) {
+      tempList = DummyDb.categoryModelList.map((category) {
         return RecipeCategoryModel(
             categoryTitle: category.categoryTitle,
-            dishList: DummyDb.dishesList.where((element) {
+            dishList: DummyDb.dishesModelList.where((element) {
               if (element.categoryIds.contains(category.categoryId)) {
                 if (dishFilter.filtered) {
                   if (dishFilter.veg || dishFilter.nonVeg || dishFilter.egg) {
@@ -105,10 +105,10 @@ class RestaurantDetailsController {
   }
 
   static List<RecipeCategoryModel> _getRecipeCategoryModelList() {
-    return DummyDb.categoryList.map((category) {
+    return DummyDb.categoryModelList.map((category) {
       return RecipeCategoryModel(
           categoryTitle: category.categoryTitle,
-          dishList: DummyDb.dishesList
+          dishList: DummyDb.dishesModelList
               .where((element) =>
                   element.categoryIds.contains(category.categoryId))
               .toList());

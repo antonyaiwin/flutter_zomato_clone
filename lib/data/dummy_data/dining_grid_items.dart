@@ -4,113 +4,43 @@ abstract class _DiningGridItems {
   static final List<Map<String, String>> diningGridItemMapList = [
     {
       'imageUrl':
-          'https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Biryani',
+          'https://images.pexels.com/photos/13689950/pexels-photo-13689950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Quick Bites',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/803290/pexels-photo-803290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Pizza',
+          'https://images.pexels.com/photos/7103710/pexels-photo-7103710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Buffet',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/616353/pexels-photo-616353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Chicken',
+          'https://images.pexels.com/photos/1064136/pexels-photo-1064136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Tourist Picks',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/4149260/pexels-photo-4149260.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Fried Rice',
+          'https://images.pexels.com/photos/196648/pexels-photo-196648.jpeg',
+      'name': 'Premium Places',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/18620325/pexels-photo-18620325/free-photo-of-chicken-mandi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Chicken Mandi',
+          'https://images.pexels.com/photos/128242/pexels-photo-128242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Pubs & Bars',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/4728230/pexels-photo-4728230.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Shawarma',
+          'https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Desserts',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/9609857/pexels-photo-9609857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Parotta',
+          'https://images.pexels.com/photos/2836945/pexels-photo-2836945.jpeg',
+      'name': 'Cafe',
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/1027811/pexels-photo-1027811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Cake',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'name': 'Chinese',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/8346891/pexels-photo-8346891.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Paratha',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/3738730/pexels-photo-3738730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Burger',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/4611424/pexels-photo-4611424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'North Indian',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/11115801/pexels-photo-11115801.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Paneer',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Dosa',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/15801053/pexels-photo-15801053/free-photo-of-fried-rolls-with-vegetables.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Rolls',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/8018000/pexels-photo-8018000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Chilli Chicken',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/2284604/pexels-photo-2284604.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Chowmein',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/5410418/pexels-photo-5410418.jpeg?auto=compress&cs=tinysrgb&w=1260',
-      'name': 'South Indian',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Ice Cream',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/4331491/pexels-photo-4331491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Idli',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/18803177/pexels-photo-18803177/free-photo-of-plate-with-greasy-momos-dumplings.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Momos',
-    },
-    {
-      'imageUrl':
-          'https://images.pexels.com/photos/115740/pexels-photo-115740.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'name': 'Fries',
+          'https://images.pexels.com/photos/3316918/pexels-photo-3316918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'name': 'Family Dining',
     },
   ];
 }

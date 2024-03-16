@@ -17,12 +17,11 @@ class DishGridView extends StatefulWidget {
 }
 
 class _DishGridViewState extends State<DishGridView> {
-  late List<GridItemDataModel> dishGridItemModelList;
-
+  List<GridItemDataModel> get dishGridItemModelList =>
+      widget.controller.dishGridItemModelList;
   @override
   void initState() {
-    dishGridItemModelList = DeliveryController().getGridItems();
-
+    widget.controller.loadGridItems();
     super.initState();
   }
 
@@ -46,7 +45,7 @@ class _DishGridViewState extends State<DishGridView> {
             children: [
               CircleAvatar(
                 radius: 50,
-                backgroundColor: ColorConstants.black3c.withOpacity(0.01),
+                backgroundColor: ColorConstants.black3c.withOpacity(0.07),
                 foregroundImage: NetworkImage(item.imageUrl),
               ),
               kVSpace(5),

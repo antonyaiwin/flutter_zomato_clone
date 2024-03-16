@@ -19,11 +19,11 @@ class DiningGridView extends StatefulWidget {
 }
 
 class _DiningGridViewState extends State<DiningGridView> {
-  late List<GridItemDataModel> gridItemModelList;
-
+  List<GridItemDataModel> get gridItemModelList =>
+      widget.controller.gridItemModelList;
   @override
   void initState() {
-    gridItemModelList = widget.controller.getGridItems();
+    widget.controller.loadGridItems();
     super.initState();
   }
 

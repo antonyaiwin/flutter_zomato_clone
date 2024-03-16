@@ -12,28 +12,29 @@ part 'restaurants.dart';
 part 'food_types.dart';
 
 abstract class DummyDb {
-  static List<CategoryDataModel> get categoryList => _Categories.categoryList
-      .map((e) => CategoryDataModel.fromJson(e))
-      .toList();
+  static List<CategoryDataModel> get categoryModelList =>
+      _Categories.categoryList
+          .map((e) => CategoryDataModel.fromJson(e))
+          .toList();
 
-  static List<GridItemDataModel> get deliveryGridItemMapList =>
+  static List<GridItemDataModel> get deliveryGridItemModelList =>
       _DeliveryGridItems.deliveryGridItemMapList
           .map((e) => GridItemDataModel.fromJson(e))
           .toList();
 
-  static List<GridItemDataModel> get diningGridItemMapList =>
+  static List<GridItemDataModel> get diningGridItemModelList =>
       _DiningGridItems.diningGridItemMapList
           .map((e) => GridItemDataModel.fromJson(e))
           .toList();
 
-  static List<DishDataModel> get dishesList =>
+  static List<DishDataModel> get dishesModelList =>
       _Dishes.dishList.map((e) => DishDataModel.fromJson(e)).toList();
 
-  static List<RestaurantDataModel> get restaurantsList =>
+  static List<RestaurantDataModel> get restaurantsModelList =>
       _Restaurants.restaurantList
           .map((e) => RestaurantDataModel.fromJson(e))
           .toList();
 
-  static List<FoodTypeModel> get foodTypeList =>
+  static List<FoodTypeModel> get foodTypeModelList =>
       _FoodTypes.foodTypeMapList.map((e) => FoodTypeModel.fromJson(e)).toList();
 }

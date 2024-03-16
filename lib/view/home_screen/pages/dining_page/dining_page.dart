@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/controller/home/dining_controller.dart';
+import 'package:flutter_zomato_clone/view/dining_details_screen/dining_details_screen.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/dining_page/widgets/dining_grid_view.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/dining_page/widgets/dining_chips.dart';
 
@@ -63,7 +66,19 @@ class _DiningPageState extends State<DiningPage>
         itemBuilder: (context, index) {
           var item = restaurantList[index];
           return RestaurantCard.dining(
-              itemKey: listItemKeyList[index], item: item);
+            itemKey: listItemKeyList[index],
+            item: item,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DiningDetailsScreen(
+                    item: item,
+                  ),
+                ),
+              );
+            },
+          );
         },
         separatorBuilder: (context, index) {
           return kVSpace(20);

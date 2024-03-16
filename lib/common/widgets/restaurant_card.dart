@@ -15,16 +15,19 @@ class RestaurantCard extends StatefulWidget {
     super.key,
     required this.itemKey,
     required this.item,
+    this.onTap,
   }) : dining = false;
   const RestaurantCard.dining({
     super.key,
     required this.itemKey,
     required this.item,
+    this.onTap,
   }) : dining = true;
 
   final RestaurantModel item;
   final Key itemKey;
   final bool dining;
+  final void Function()? onTap;
   @override
   State<RestaurantCard> createState() => _RestaurantCardState();
 }
@@ -35,16 +38,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => RestaurantDetailsScreen(
-              item: widget.item,
-            ),
-          ),
-        );
-      },
+      onTap: widget.onTap,
       child: VisibilityDetector(
         key: widget.itemKey,
         onVisibilityChanged: (VisibilityInfo visibilityInfo) {
@@ -95,6 +89,11 @@ class _RestaurantCardState extends State<RestaurantCard> {
                           int pageViewIndex) {
                         return Image.network(
                           widget.item.dishes[itemIndex].imageUrl,
+                          loadingBuilder: (context, child, loadingProgress) =>
+                              Container(
+                            color: ColorConstants.black3c.withOpacity(0.07),
+                            child: child,
+                          ),
                           height: 200,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -161,22 +160,23 @@ class _RestaurantCardState extends State<RestaurantCard> {
                         ),
                       ),
                       Positioned(
-                          right: 15,
-                          top: 15,
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Bootstrap.heart,
-                                color: ColorConstants.primaryWhite,
-                              ),
-                              kHSpace(20),
-                              const Icon(
-                                OctIcons.share_android,
-                                color: ColorConstants.primaryWhite,
-                              ),
-                            ],
-                          ))
-                    ]
+                        right: 15,
+                        top: 15,
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Bootstrap.heart,
+                              color: ColorConstants.primaryWhite,
+                            ),
+                            kHSpace(20),
+                            const Icon(
+                              OctIcons.share_android,
+                              color: ColorConstants.primaryWhite,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ],
                 ),
                 Container(
