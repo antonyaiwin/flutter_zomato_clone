@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
+import 'package:flutter_zomato_clone/controller/restaurant/restaurant_details_controller.dart';
 
 import '../../../utils/functions/custom_functions.dart';
 import 'dish_filter_bottom_sheet.dart';

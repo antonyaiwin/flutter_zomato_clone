@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
+import 'package:flutter_zomato_clone/controller/restaurant/restaurant_details_controller.dart';
 import 'package:flutter_zomato_clone/model/data_model/dish_data_model.dart';
 import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
 import 'package:icons_plus/icons_plus.dart';
@@ -30,6 +30,7 @@ class RestaurantDetailsScreen extends StatefulWidget {
 class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   late ScrollController _scrollController;
   late RestaurantDetailsController restaurantDetailsController;
+  bool loading = true;
 
   double expansionHeaderHeight = 56;
   double containerHeight = 192;
@@ -48,10 +49,18 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
   void initState() {
     _scrollController = ScrollController();
     restaurantDetailsController = RestaurantDetailsController();
+    loadDataForFirstTime();
     _scrollController.addListener(scrollListener);
     _scrollController.addListener(scrollListenerForSearchField);
     searchController = TextEditingController();
     super.initState();
+  }
+
+  loadDataForFirstTime() async {
+    await restaurantDetailsController.loadData();
+    setState(() {
+      loading = false;
+    });
   }
 
   @override
@@ -162,116 +171,167 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     child: RestaurantChips(
                       restaurantDetailsController: restaurantDetailsController,
-                      onChipToggled: () {
-                        setState(() {});
+                      onChipToggled: () async {
+                        setState(() {
+                          loading = true;
+                        });
+                        await restaurantDetailsController
+                            .refreshCategoryListWithFilters();
+                        setState(() {
+                          loading = false;
+                        });
+                        scrollToIndex(0);
                       },
                     ),
                   )),
             ),
-            SliverPadding(
-              padding: const EdgeInsets.only(bottom: 500),
-              sliver: SliverList.separated(
-                itemBuilder: (context, index) {
-                  RecipeCategoryModel categoryItem =
-                      recipeCategoryModelList[index];
-                  return ExpansionTile(
-                    iconColor: ColorConstants.primaryBlack,
-                    backgroundColor: ColorConstants.primaryWhite,
-                    collapsedBackgroundColor: ColorConstants.primaryWhite,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    collapsedShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    childrenPadding: const EdgeInsets.symmetric(horizontal: 12),
-                    title: Text(
-                      categoryItem.categoryTitle,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 18),
-                    ),
-                    initiallyExpanded: true,
-                    maintainState: true,
-                    children: List.generate(
-                      categoryItem.dishList.length,
-                      (index) {
-                        DishDataModel dishItem = categoryItem.dishList[index];
-                        return DishTile(
-                          dishItem: dishItem,
-                          showDivider:
-                              categoryItem.dishList.length - 1 != index,
-                        );
-                      },
+            if (loading)
+              const SliverFillRemaining(
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            else if (recipeCategoryModelList.isEmpty)
+              const SliverFillRemaining(
+                child: Center(
+                  child: Text('No results found!'),
+                ),
+              )
+            else
+              SliverPadding(
+                padding: const EdgeInsets.only(bottom: 500),
+                sliver: restaurantDetailsController.dishFilter.sorted
+                    ? SliverList.builder(
+                        itemBuilder: (context, index) {
+                          DishDataModel dishItem =
+                              recipeCategoryModelList[0].dishList[index];
+                          return Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            color: ColorConstants.primaryWhite,
+                            child: DishTile(
+                              dishItem: dishItem,
+                              showDivider:
+                                  recipeCategoryModelList[0].dishList.length -
+                                          1 !=
+                                      index,
+                            ),
+                          );
+                        },
+                        itemCount: recipeCategoryModelList[0].dishList.length,
+                      )
+                    : SliverList.separated(
+                        itemBuilder: (context, index) {
+                          RecipeCategoryModel categoryItem =
+                              recipeCategoryModelList[index];
+                          return ExpansionTile(
+                            iconColor: ColorConstants.primaryBlack,
+                            backgroundColor: ColorConstants.primaryWhite,
+                            collapsedBackgroundColor:
+                                ColorConstants.primaryWhite,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            collapsedShape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            childrenPadding:
+                                const EdgeInsets.symmetric(horizontal: 12),
+                            title: Text(
+                              categoryItem.categoryTitle,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w900, fontSize: 18),
+                            ),
+                            initiallyExpanded: true,
+                            maintainState: true,
+                            children: List.generate(
+                              categoryItem.dishList.length,
+                              (index) {
+                                DishDataModel dishItem =
+                                    categoryItem.dishList[index];
+                                return DishTile(
+                                  dishItem: dishItem,
+                                  showDivider:
+                                      categoryItem.dishList.length - 1 != index,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return const SizedBox(height: 15);
+                        },
+                        itemCount: recipeCategoryModelList.length,
+                      ),
+              ),
+          ],
+        ),
+        bottomNavigationBar: loading ||
+                restaurantDetailsController.dishFilter.sorted
+            ? null
+            : Builder(
+                builder: (context) {
+                  tabContext = context;
+                  return Material(
+                    elevation: 10,
+                    color: ColorConstants.primaryWhite,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5) /* .copyWith(right: 85) */,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: TabBar(
+                              indicatorPadding:
+                                  const EdgeInsets.symmetric(vertical: 8),
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              isScrollable: true,
+                              dividerHeight: 0,
+                              labelColor: ColorConstants.primaryBlack,
+                              unselectedLabelColor:
+                                  ColorConstants.black3c.withOpacity(0.5),
+                              overlayColor: const MaterialStatePropertyAll(
+                                  Colors.transparent),
+                              indicator: BoxDecoration(
+                                  color: ColorConstants.primaryBlack
+                                      .withOpacity(0.05),
+                                  borderRadius: BorderRadius.circular(10)),
+                              tabs: List.generate(
+                                recipeCategoryModelList.length,
+                                (index) => Tab(
+                                  text: recipeCategoryModelList[index]
+                                      .categoryTitle,
+                                ),
+                              ),
+                              onTap: (int index) => scrollToIndex(index),
+                            ),
+                          ),
+                          DishMenuButton(
+                            onTap: () async {
+                              // setState(() {
+                              // closed = !closed;
+                              int? returnedIndex = await showDialog(
+                                context: tabContext!,
+                                builder: (context) {
+                                  return DishMenuPopupWidget(
+                                    tabContext: tabContext!,
+                                    restaurantDetailsController:
+                                        restaurantDetailsController,
+                                  );
+                                },
+                              );
+                              if (returnedIndex != null && context.mounted) {
+                                DefaultTabController.of(context)
+                                    .animateTo(returnedIndex);
+                                scrollToIndex(returnedIndex);
+                              }
+                              // });
+                            },
+                            closed: true,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: 15);
-                },
-                itemCount: recipeCategoryModelList.length,
               ),
-            ),
-          ],
-        ),
-        bottomNavigationBar: Builder(builder: (context) {
-          tabContext = context;
-          return Material(
-            elevation: 10,
-            color: ColorConstants.primaryWhite,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 5) /* .copyWith(right: 85) */,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TabBar(
-                      indicatorPadding: const EdgeInsets.symmetric(vertical: 8),
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      isScrollable: true,
-                      dividerHeight: 0,
-                      labelColor: ColorConstants.primaryBlack,
-                      unselectedLabelColor:
-                          ColorConstants.black3c.withOpacity(0.5),
-                      overlayColor:
-                          const MaterialStatePropertyAll(Colors.transparent),
-                      indicator: BoxDecoration(
-                          color: ColorConstants.primaryBlack.withOpacity(0.05),
-                          borderRadius: BorderRadius.circular(10)),
-                      tabs: List.generate(
-                        recipeCategoryModelList.length,
-                        (index) => Tab(
-                          text: recipeCategoryModelList[index].categoryTitle,
-                        ),
-                      ),
-                      onTap: (int index) => scrollToIndex(index),
-                    ),
-                  ),
-                  DishMenuButton(
-                    onTap: () async {
-                      // setState(() {
-                      // closed = !closed;
-                      int? returnedIndex = await showDialog(
-                        context: tabContext!,
-                        builder: (context) {
-                          return DishMenuPopupWidget(
-                            tabContext: tabContext!,
-                            restaurantDetailsController:
-                                restaurantDetailsController,
-                          );
-                        },
-                      );
-                      if (returnedIndex != null && context.mounted) {
-                        DefaultTabController.of(context)
-                            .animateTo(returnedIndex);
-                        scrollToIndex(returnedIndex);
-                      }
-                      // });
-                    },
-                    closed: true,
-                  ),
-                ],
-              ),
-            ),
-          );
-        }),
       ),
     );
   }

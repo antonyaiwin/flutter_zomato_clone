@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
+import 'package:flutter_zomato_clone/controller/restaurant/restaurant_details_controller.dart';
 import 'package:flutter_zomato_clone/utils/constants/colors.dart';
 import 'package:icons_plus/icons_plus.dart';
 

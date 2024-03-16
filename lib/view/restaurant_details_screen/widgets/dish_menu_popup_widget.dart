@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
+import 'package:flutter_zomato_clone/controller/restaurant/restaurant_details_controller.dart';
 
 import '../../../model/restaurant/recipe_category_model.dart';
 import '../../../utils/constants/colors.dart';

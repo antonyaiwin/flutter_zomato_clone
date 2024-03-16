@@ -9,7 +9,7 @@ import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/chip
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/widgets/filter_options_card.dart';
 
 import '../../../common/widgets/outlined_card.dart';
-import '../../../controller/home/restaurant_details_controller.dart';
+import '../../../controller/restaurant/restaurant_details_controller.dart';
 
 class DishFilterBottomSheet extends StatefulWidget {
   const DishFilterBottomSheet({
