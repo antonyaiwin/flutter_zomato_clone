@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/controller/home/restaurant_details_controller.dart';
+import 'package:flutter_zomato_clone/model/data_model/dish_data_model.dart';
 import 'package:flutter_zomato_clone/utils/functions/custom_functions.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -192,7 +193,7 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
                     children: List.generate(
                       categoryItem.dishList.length,
                       (index) {
-                        DishItemModel dishItem = categoryItem.dishList[index];
+                        DishDataModel dishItem = categoryItem.dishList[index];
                         return DishTile(
                           dishItem: dishItem,
                           showDivider:

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
-import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
+import 'package:flutter_zomato_clone/model/data_model/dish_data_model.dart';
 import 'package:flutter_zomato_clone/utils/constants/enums.dart';
 
 import '../../../common/widgets/diet_icon.dart';
@@ -14,7 +14,7 @@ class DishDetailsColumn extends StatelessWidget {
     this.dense = false,
   });
 
-  final DishItemModel dishItem;
+  final DishDataModel dishItem;
   final bool showPrice;
   final bool dense;
 

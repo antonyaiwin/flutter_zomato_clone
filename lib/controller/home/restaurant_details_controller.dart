@@ -1,3 +1,4 @@
+import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
 import 'package:flutter_zomato_clone/model/restaurant/recipe_category_model.dart';
 
 class RestaurantDetailsController {
@@ -10,7 +11,14 @@ class RestaurantDetailsController {
         dishFilter = DishFilter._();
 
   static List<RecipeCategoryModel> _getRecipeCategoryModelList() {
-    return [];
+    return DummyDb.categoryList.map((category) {
+      return RecipeCategoryModel(
+          categoryTitle: category.categoryTitle,
+          dishList: DummyDb.dishesList
+              .where((element) =>
+                  element.categoryIds.contains(category.categoryId))
+              .toList());
+    }).toList();
   }
 
   static final List offersMap = [

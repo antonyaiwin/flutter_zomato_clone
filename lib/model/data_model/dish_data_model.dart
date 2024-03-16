@@ -1,13 +1,16 @@
+import '../../utils/constants/enums.dart';
+
 class DishDataModel {
   int dishId;
   List<int> categoryIds;
   String dishName;
   String dishDescription;
-  int amount;
+  double amount;
   double rating;
   int ratingCount;
   String imageUrl;
-  String dietType;
+  DietType dietType;
+  List<int> foodTypeIds;
 
   DishDataModel({
     required this.dishId,
@@ -19,19 +22,23 @@ class DishDataModel {
     required this.ratingCount,
     required this.imageUrl,
     required this.dietType,
+    required this.foodTypeIds,
   });
 
-  factory DishDataModel.fromJson(Map<String, dynamic> json) => DishDataModel(
-        dishId: json["dish_id"],
-        categoryIds: List<int>.from(json["category_ids"].map((x) => x)),
-        dishName: json["dish_name"],
-        dishDescription: json["dish_description"],
-        amount: json["amount"],
-        rating: json["rating"]?.toDouble(),
-        ratingCount: json["rating_count"],
-        imageUrl: json["image_url"],
-        dietType: json["diet_type"],
-      );
+  factory DishDataModel.fromJson(Map<String, dynamic> json) {
+    return DishDataModel(
+      dishId: json["dish_id"],
+      categoryIds: List<int>.from(json["category_ids"].map((x) => x)),
+      dishName: json["dish_name"],
+      dishDescription: json["dish_description"],
+      amount: json["amount"]?.toDouble(),
+      rating: json["rating"]?.toDouble(),
+      ratingCount: json["rating_count"],
+      imageUrl: json["image_url"],
+      dietType: DietType.fromString(json["diet_type"]),
+      foodTypeIds: List<int>.from(json["food_type_ids"].map((x) => x)),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "dish_id": dishId,
@@ -42,6 +49,7 @@ class DishDataModel {
         "rating": rating,
         "rating_count": ratingCount,
         "image_url": imageUrl,
-        "diet_type": dietType,
+        "diet_type": dietType.value,
+        "food_type_ids": List<dynamic>.from(foodTypeIds.map((x) => x)),
       };
 }

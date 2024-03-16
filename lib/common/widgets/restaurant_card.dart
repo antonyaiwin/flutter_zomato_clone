@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
 import 'package:flutter_zomato_clone/view/restaurant_details_screen/restaurant_details_screen.dart';
@@ -138,8 +136,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
                               children: [
                                 Flexible(
                                   child: Text(
-                                    widget
-                                        .item.dishes[currentCarouselIndex].name,
+                                    widget.item.dishes[currentCarouselIndex]
+                                        .dishName,
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: const TextStyle(
@@ -149,7 +147,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                   ),
                                 ),
                                 Text(
-                                  ' • ₹${widget.item.dishes[currentCarouselIndex].price.toStringAsFixed(0)}',
+                                  ' • ₹${widget.item.dishes[currentCarouselIndex].amount.toStringAsFixed(0)}',
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   style: const TextStyle(
@@ -244,7 +242,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                         color: ColorConstants.primaryBlack)),
                                 TextSpan(
                                     text:
-                                        '₹${Random().nextInt(100) + 150} for one'),
+                                        '₹${widget.item.dishes[0].amount.toStringAsFixed(0)} for one'),
                               ]
                             ],
                           ),
@@ -252,7 +250,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
                       ),
                       if (!widget.dining)
                         TimeDistanceWidget(
-                          timeInMinutes: '${Random().nextInt(40) + 10} min',
+                          timeInMinutes:
+                              '${(60 * widget.item.distanceInKM) / 15} min',
                           distanceInKm: widget.item.distanceInKM,
                         ),
                     ],
@@ -272,7 +271,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
         children: [
           Expanded(child: child),
           Text(
-            '₹${Random().nextInt(100) + 150} for two',
+            '₹${widget.item.dishes[0].amount.toStringAsFixed(0) * 2} for two',
           ),
         ],
       );

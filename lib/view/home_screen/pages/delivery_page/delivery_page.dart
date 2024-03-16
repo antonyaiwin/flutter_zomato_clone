@@ -27,9 +27,8 @@ class _DeliveryPageState extends State<DeliveryPage>
   @override
   void initState() {
     restaurantList = controller.getRestaurants();
-    listItemKeyList ==
-        List.generate(restaurantList.length,
-            (index) => GlobalKey(debugLabel: index.toString()));
+    listItemKeyList = List.generate(restaurantList.length,
+        (index) => GlobalKey(debugLabel: index.toString()));
     super.initState();
   }
 

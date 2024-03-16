@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_zomato_clone/controller/home/home_screen_controller.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/delivery_page/delivery_page.dart';
 import 'package:flutter_zomato_clone/view/home_screen/pages/dining_page/dining_page.dart';
 

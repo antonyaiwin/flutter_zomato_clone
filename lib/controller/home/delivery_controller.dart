@@ -9,6 +9,23 @@ class DeliveryController {
   }
 
   List<RestaurantModel> getRestaurants() {
-    return [];
+    return DummyDb.restaurantsList.map((restaurant) {
+      return RestaurantModel(
+        foodTypes: restaurant.foodTypeIds
+            .map((e) => DummyDb.foodTypeList
+                .firstWhere((element) => element.foodTypeId == e)
+                .foodTypeTitle)
+            .toList(),
+        rating: restaurant.rating,
+        ratingCount: restaurant.ratingCount,
+        place: restaurant.place,
+        distanceInKM: restaurant.distanceInKm,
+        dishes: DummyDb.dishesList
+            .where((element) => restaurant.foodTypeIds
+                .any((item) => element.foodTypeIds.contains(item)))
+            .toList(),
+        name: restaurant.restaurantName,
+      );
+    }).toList();
   }
 }

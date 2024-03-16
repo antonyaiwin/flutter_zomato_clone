@@ -19,5 +19,6 @@ abstract class _FoodTypes {
     {"food_type_id": 15, "food_type_title": "Desserts"},
     {"food_type_id": 16, "food_type_title": "Cafe"},
     {"food_type_id": 17, "food_type_title": "Coffee"},
+    {"food_type_id": 18, "food_type_title": "Seafood"},
   ];
 }

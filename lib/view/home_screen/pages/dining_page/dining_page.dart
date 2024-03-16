@@ -19,7 +19,7 @@ class DiningPage extends StatefulWidget {
 
 class _DiningPageState extends State<DiningPage>
     with AutomaticKeepAliveClientMixin {
-  late DiningController controller;
+  late DiningController controller = DiningController();
 
   late final List<GlobalKey> listItemKeyList;
 

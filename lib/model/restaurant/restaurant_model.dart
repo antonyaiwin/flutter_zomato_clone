@@ -1,4 +1,4 @@
-import 'package:flutter_zomato_clone/model/dishes/dish_model.dart';
+import '../data_model/dish_data_model.dart';
 
 class RestaurantModel {
   final String name;
@@ -7,7 +7,7 @@ class RestaurantModel {
   final String ratingCount;
   final String place;
   final double distanceInKM;
-  final List<DishModel> dishes;
+  final List<DishDataModel> dishes;
 
   RestaurantModel({
     required this.foodTypes,
