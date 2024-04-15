@@ -19,7 +19,7 @@ abstract class _DiningGridItems {
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/196648/pexels-photo-196648.jpeg',
+          'https://images.pexels.com/photos/196648/pexels-photo-196648.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'name': 'Premium Places',
     },
     {
@@ -34,7 +34,7 @@ abstract class _DiningGridItems {
     },
     {
       'imageUrl':
-          'https://images.pexels.com/photos/2836945/pexels-photo-2836945.jpeg',
+          'https://images.pexels.com/photos/2836945/pexels-photo-2836945.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'name': 'Cafe',
     },
     {

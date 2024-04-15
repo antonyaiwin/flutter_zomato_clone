@@ -21,7 +21,8 @@ abstract class SharedPreferencesUtils {
   static Future<UserModel?> getLoginedUser() async {
     // Obtain shared preferences.
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
+    print(
+        'Pref: \n\n ${prefs.containsKey(_userNameKey)} && ${prefs.containsKey(_userPhoneNoKey)} && ${prefs.containsKey(_userIsVegetarianKey)}');
     if (prefs.containsKey(_userNameKey) &&
         prefs.containsKey(_userPhoneNoKey) &&
         prefs.containsKey(_userIsVegetarianKey)) {

@@ -21,17 +21,18 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   UserModel? user;
-  late List<SettingsCategoryModel> settingsModelList;
+  List<SettingsCategoryModel> settingsModelList = [];
   @override
   void initState() {
-    SharedPreferencesUtils.getLoginedUser().then((value) {
-      setState(() {
-        user = value;
-        settingsModelList =
-            SettingsScreenController.getSettingsCategoryList(user);
-      });
-    });
+    getSettings();
     super.initState();
+  }
+
+  void getSettings() async {
+    user = await SharedPreferencesUtils.getLoginedUser();
+    print('loggined user:\n\n ${user != null}');
+    settingsModelList = SettingsScreenController.getSettingsCategoryList(user);
+    setState(() {});
   }
 
   @override

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zomato_clone/utils/functions/shared_preferences_utils.dart';
+import 'package:flutter_zomato_clone/view/home_screen/home_screen.dart';
 
 import '../../utils/constants/colors.dart';
 import '../login_screen/login_screen.dart';
@@ -8,12 +10,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 2))
-        .then((value) => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
-            )));
+    navigateToNextScreen(context);
     return const Scaffold(
       backgroundColor: ColorConstants.primaryColor,
       body: Center(
@@ -40,5 +37,16 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void navigateToNextScreen(BuildContext context) async {
+    bool val = await SharedPreferencesUtils.getLoginedUser() == null;
+    Future.delayed(const Duration(seconds: 2))
+        .then((value) => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  val ? const LoginScreen() : const HomeScreen(),
+            )));
   }
 }
