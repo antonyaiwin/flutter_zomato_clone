@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/controller/home/dining_controller.dart';
 import 'package:flutter_zomato_clone/view/dining_details_screen/dining_details_screen.dart';

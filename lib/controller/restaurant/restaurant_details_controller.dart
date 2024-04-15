@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/data/dummy_data/dummy_db.dart';
@@ -78,9 +79,9 @@ class RestaurantDetailsController {
     }
 
     // sorting
-    print('dishfilter sorting ${dishFilter.sorted}');
+    log('dishfilter sorting ${dishFilter.sorted}');
     if (dishFilter.sorted) {
-      print('sorted');
+      log('sorted');
       List<DishDataModel> dishList = [];
       for (var element in recipeCategoryModelList) {
         dishList.addAll(element.dishList);

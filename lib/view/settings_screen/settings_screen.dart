@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/elevated_card.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
@@ -30,7 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void getSettings() async {
     user = await SharedPreferencesUtils.getLoginedUser();
-    print('loggined user:\n\n ${user != null}');
+    log('loggined user:\n\n ${user != null}');
     settingsModelList = SettingsScreenController.getSettingsCategoryList(user);
     setState(() {});
   }

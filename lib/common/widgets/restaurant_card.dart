@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zomato_clone/common/widgets/spacer.dart';
-import 'package:flutter_zomato_clone/view/restaurant_details_screen/restaurant_details_screen.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:visibility_detector/visibility_detector.dart';

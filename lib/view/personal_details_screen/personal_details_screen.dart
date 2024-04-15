@@ -149,13 +149,14 @@ class _PersonalDetailsScreenState extends State<PersonalDetailsScreen> {
               name: nameController.text,
               phoneNo: widget.phoneNumber,
               isVegetarian: isVegetarian!),
-        );
-        return Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HomeScreen(),
-            ),
-            (route) => false);
+        ).then((value) {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+              (route) => false);
+        });
       },
     );
   }
