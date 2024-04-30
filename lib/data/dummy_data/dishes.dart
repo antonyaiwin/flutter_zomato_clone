@@ -13,7 +13,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 644,
       'image_url':
-          'https://images.pexels.com/photos/18620325/pexels-photo-18620325/free-photo-of-chicken-mandi.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18620325/pexels-photo-18620325/free-photo-of-chicken-mandi.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1, 5],
     },
@@ -27,7 +27,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 1123,
       'image_url':
-          'https://images.pexels.com/photos/18698228/pexels-photo-18698228/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18698228/pexels-photo-18698228/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1, 5],
     },
@@ -41,7 +41,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 120,
       'image_url':
-          'https://images.pexels.com/photos/18698236/pexels-photo-18698236/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18698236/pexels-photo-18698236/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1, 5],
     },
@@ -55,7 +55,7 @@ abstract class _Dishes {
       'rating': 4.5,
       'rating_count': 210,
       'image_url':
-          'https://images.pexels.com/photos/18698227/pexels-photo-18698227/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18698227/pexels-photo-18698227/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1, 5],
     },
@@ -69,7 +69,7 @@ abstract class _Dishes {
       'rating': 4.5,
       'rating_count': 414,
       'image_url':
-          'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18698264/pexels-photo-18698264/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1, 5],
     },
@@ -85,7 +85,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 382,
       'image_url':
-          'https://images.pexels.com/photos/18698222/pexels-photo-18698222/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18698222/pexels-photo-18698222/free-photo-of-food-photography.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1],
     },
@@ -98,7 +98,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 93,
       'image_url':
-          'https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [1],
     },
@@ -112,7 +112,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 10,
       'image_url':
-          'https://images.pexels.com/photos/5946433/pexels-photo-5946433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/5946433/pexels-photo-5946433.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [1],
     },
@@ -120,13 +120,13 @@ abstract class _Dishes {
     {
       'dish_id': 10,
       'category_ids': [4],
-      'dish_name': 'Pepsi Max 750ml',
-      'dish_description': 'Pepsi 750ml Can',
+      'dish_name': 'Pepsi Max 500ml',
+      'dish_description': 'Pepsi 500ml Can',
       'amount': 45.0,
       'rating': 4.1,
       'rating_count': 2,
       'image_url':
-          'https://images.pexels.com/photos/11942006/pexels-photo-11942006.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/11942006/pexels-photo-11942006.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [9],
     },
@@ -139,7 +139,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/1484678/pexels-photo-1484678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/1484678/pexels-photo-1484678.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [9],
     },
@@ -154,7 +154,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 2,
       'image_url':
-          'https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/3926124/pexels-photo-3926124.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [2],
     },
@@ -167,7 +167,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 562,
       'image_url':
-          'https://images.pexels.com/photos/8992927/pexels-photo-8992927.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/8992927/pexels-photo-8992927.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [2],
     },
@@ -183,7 +183,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 2,
       'image_url':
-          'https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [3, 12],
     },
@@ -196,7 +196,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/3926133/pexels-photo-3926133.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [3, 12],
     },
@@ -211,7 +211,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 2,
       'image_url':
-          'https://images.pexels.com/photos/4331491/pexels-photo-4331491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/4331491/pexels-photo-4331491.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [4],
     },
@@ -224,7 +224,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/5560763/pexels-photo-5560763.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [4],
     },
@@ -239,7 +239,7 @@ abstract class _Dishes {
       'rating': 4.7,
       'rating_count': 2255,
       'image_url':
-          'https://images.pexels.com/photos/13292526/pexels-photo-13292526.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/13292526/pexels-photo-13292526.png?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [6],
     },
@@ -252,7 +252,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 5645,
       'image_url':
-          'https://images.pexels.com/photos/6897730/pexels-photo-6897730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/6897730/pexels-photo-6897730.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [6],
     },
@@ -267,7 +267,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 552,
       'image_url':
-          'https://images.pexels.com/photos/18867543/pexels-photo-18867543/free-photo-of-burger-served-in-a-restaurant.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/18867543/pexels-photo-18867543/free-photo-of-burger-served-in-a-restaurant.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [7],
     },
@@ -280,7 +280,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/12129480/pexels-photo-12129480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/12129480/pexels-photo-12129480.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [7],
     },
@@ -295,7 +295,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 2464,
       'image_url':
-          'https://images.pexels.com/photos/8805097/pexels-photo-8805097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/8805097/pexels-photo-8805097.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [8],
     },
@@ -308,7 +308,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/5338141/pexels-photo-5338141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/5338141/pexels-photo-5338141.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [8],
     },
@@ -323,7 +323,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 245,
       'image_url':
-          'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/1893555/pexels-photo-1893555.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [10],
     },
@@ -336,7 +336,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/8992926/pexels-photo-8992926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/8992926/pexels-photo-8992926.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'egg',
       "food_type_ids": [10],
     },
@@ -349,7 +349,7 @@ abstract class _Dishes {
       'rating': 4.8,
       'rating_count': 556,
       'image_url':
-          'https://images.pexels.com/photos/8992924/pexels-photo-8992924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/8992924/pexels-photo-8992924.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [10],
     },
@@ -364,7 +364,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 2,
       'image_url':
-          'https://images.pexels.com/photos/845811/pexels-photo-845811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/845811/pexels-photo-845811.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [11],
     },
@@ -379,7 +379,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 4642,
       'image_url':
-          'https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/2233729/pexels-photo-2233729.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [13],
     },
@@ -395,7 +395,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 562,
       'image_url':
-          'https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/808941/pexels-photo-808941.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'egg',
       "food_type_ids": [14, 15],
     },
@@ -424,7 +424,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 562,
       'image_url':
-          'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [16, 17],
     },
@@ -437,7 +437,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 56,
       'image_url':
-          'https://images.pexels.com/photos/8605915/pexels-photo-8605915.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/8605915/pexels-photo-8605915.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'veg',
       "food_type_ids": [16, 17],
     },
@@ -452,7 +452,7 @@ abstract class _Dishes {
       'rating': 4.1,
       'rating_count': 562,
       'image_url':
-          'https://images.pexels.com/photos/775863/pexels-photo-775863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/775863/pexels-photo-775863.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [18],
     },
@@ -465,7 +465,7 @@ abstract class _Dishes {
       'rating': 4.2,
       'rating_count': 456,
       'image_url':
-          'https://images.pexels.com/photos/4553120/pexels-photo-4553120.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.pexels.com/photos/4553120/pexels-photo-4553120.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&dpr=1',
       'diet_type': 'non-veg',
       "food_type_ids": [18],
     },
